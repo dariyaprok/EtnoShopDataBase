@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1217" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Bonus" representedClassName="Bonus" syncable="YES">
+        <attribute name="amount" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dateOfCreation" attributeType="Date" defaultDateTimeInterval="516782220" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="employee" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="bonus" inverseEntity="Employee" syncable="YES"/>
+    </entity>
+    <entity name="Employee" representedClassName="Employee" syncable="YES">
+        <attribute name="dateOfBirth" attributeType="Date" defaultDateTimeInterval="514190100" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateOfStartWork" attributeType="Date" defaultDateTimeInterval="516782100" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="Full name" syncable="YES"/>
+        <attribute name="phoneNumber" attributeType="String" defaultValueString="0930000000" syncable="YES"/>
+        <attribute name="sallary" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="bonus" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bonus" inverseName="employee" inverseEntity="Bonus" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Employee" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Bonus" positionX="-54" positionY="27" width="128" height="90"/>
+    </elements>
+</model>
