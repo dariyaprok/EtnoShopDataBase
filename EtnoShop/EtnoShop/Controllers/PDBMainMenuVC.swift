@@ -13,6 +13,8 @@ class PDBMainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet private weak var tableView: UITableView!
     
     private let content = ["Склад", "Продажі", "Прибутки", "Працівники", "Додаткові настройки"]
+    private let viewControllers: [(storyboardName:String, vcId:String)] = [("", ""), ("", ""), ("", ""), ("Employees", "PDBEmployeesListVC"), ("","")]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,14 @@ class PDBMainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return content.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 3 {
+            let vcInfo = viewControllers[indexPath.row]
+            let vc = UIStoryboard(name: vcInfo.storyboardName, bundle: nil).instantiateViewController(withIdentifier: vcInfo.vcId)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     //MARK: - private

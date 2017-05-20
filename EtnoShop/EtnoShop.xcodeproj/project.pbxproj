@@ -19,6 +19,8 @@
 		84D0AAAD1ECD760500DCBCF1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AAAC1ECD760500DCBCF1 /* CoreDataManager.swift */; };
 		84D0AAC91ED05DD900DCBCF1 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AAC71ED05DD900DCBCF1 /* Employee.swift */; };
 		84D0AAD11ED0615E00DCBCF1 /* Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AACF1ED0615E00DCBCF1 /* Bonus.swift */; };
+		84D0AAD51ED0F1FA00DCBCF1 /* PDBEmployeeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AAD41ED0F1FA00DCBCF1 /* PDBEmployeeListVC.swift */; };
+		84D0AAD71ED0F55A00DCBCF1 /* Employees.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AAD61ED0F55A00DCBCF1 /* Employees.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		84D0AAAC1ECD760500DCBCF1 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = Managers/CoreDataManager.swift; sourceTree = "<group>"; };
 		84D0AAC71ED05DD900DCBCF1 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Employee.swift; path = Models/Employee.swift; sourceTree = "<group>"; };
 		84D0AACF1ED0615E00DCBCF1 /* Bonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bonus.swift; path = Models/Bonus.swift; sourceTree = "<group>"; };
+		84D0AAD41ED0F1FA00DCBCF1 /* PDBEmployeeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBEmployeeListVC.swift; path = Controllers/Employees/PDBEmployeeListVC.swift; sourceTree = "<group>"; };
+		84D0AAD61ED0F55A00DCBCF1 /* Employees.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Employees.storyboard; path = Controllers/Employees/Employees.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		84D0AA9B1ECCFB9E00DCBCF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84D0AAD31ED0F1C600DCBCF1 /* Employees */,
 				84D0AA9C1ECCFCD100DCBCF1 /* PDBMainMenuVC.swift */,
 			);
 			name = Controllers;
@@ -123,6 +128,15 @@
 				84D0AAC71ED05DD900DCBCF1 /* Employee.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		84D0AAD31ED0F1C600DCBCF1 /* Employees */ = {
+			isa = PBXGroup;
+			children = (
+				84D0AAD41ED0F1FA00DCBCF1 /* PDBEmployeeListVC.swift */,
+				84D0AAD61ED0F55A00DCBCF1 /* Employees.storyboard */,
+			);
+			name = Employees;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +203,7 @@
 				84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */,
 				84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */,
 				84D0AAA41ECCFE1000DCBCF1 /* PDBMenuCell.xib in Resources */,
+				84D0AAD71ED0F55A00DCBCF1 /* Employees.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +219,7 @@
 				84D0AAA21ECCFDEA00DCBCF1 /* PDBMenuCell.swift in Sources */,
 				84D0AA8A1ECCDEAF00DCBCF1 /* AppDelegate.swift in Sources */,
 				84D0AAAA1ECD756900DCBCF1 /* EtnoShop.xcdatamodeld in Sources */,
+				84D0AAD51ED0F1FA00DCBCF1 /* PDBEmployeeListVC.swift in Sources */,
 				84D0AAC91ED05DD900DCBCF1 /* Employee.swift in Sources */,
 				84D0AAA71ECD755600DCBCF1 /* CoreDataStack.swift in Sources */,
 				84D0AAD11ED0615E00DCBCF1 /* Bonus.swift in Sources */,
@@ -329,6 +345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L748ZMC8YR;
 				INFOPLIST_FILE = EtnoShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dashaproduction.EtnoShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -342,6 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L748ZMC8YR;
 				INFOPLIST_FILE = EtnoShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dashaproduction.EtnoShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
