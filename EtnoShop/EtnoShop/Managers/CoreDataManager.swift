@@ -13,21 +13,24 @@ import CoreData
 class CoreDataManager: NSObject {
     
     private let coreDataStack = CoreDataStack(modelName: "EtnoShop")
-    
+    static let sharedInstanse = CoreDataManager()
     private let employeeEntityName = "Employee"
     
     //MARK: - Employees
     public func loadAllEmployees() -> [Employee]? {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: employeeEntityName)
-        var employees:[Employee]
+        var employees:[Employee] = []
         do {
             employees = try coreDataStack.managedObjectContext.fetch(request) as! [Employee]
-            return employees
+            let records = try coreDataStack.managedObjectContext.fetch(request)
+            if let records = records as? [Employee] {
+                employees = records
+            }
         }
         catch {
             print("Can't load employees")
         }
-        return nil
+        return employees
     }
     
     public func addEmployee(name:String, dateOfBirth:NSDate, dateOfStartWork:NSDate, phoneNumber:String, sallary:Int16) {
@@ -45,4 +48,18 @@ class CoreDataManager: NSObject {
         }
     }
 
+    public func editEmployee(employee: Employee, name:String, dateOfBirth:NSDate, dateOfStartWork:NSDate, phoneNumber:String, sallary:Int16) {
+        employee.name = name
+        employee.dateOfBirth = dateOfBirth
+        employee.dateOfStartWork = dateOfStartWork
+        employee.phoneNumber = phoneNumber
+        employee.sallary = sallary
+        do {
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("can't save info")
+        }
+
+    }
 }
