@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		84AA17351ED1F49200715D85 /* PDBBonusCreatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17341ED1F49200715D85 /* PDBBonusCreatorVC.swift */; };
+		84AA17381ED1FDE700715D85 /* AdditionalSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84AA17371ED1FDE700715D85 /* AdditionalSettings.storyboard */; };
+		84AA173A1ED201DD00715D85 /* PDBAdditionalSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17391ED201DD00715D85 /* PDBAdditionalSettingsVC.swift */; };
+		84AA173C1ED2089E00715D85 /* PDBSizesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA173B1ED2089E00715D85 /* PDBSizesVC.swift */; };
 		84D0AA8A1ECCDEAF00DCBCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */; };
 		84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA8D1ECCDEAF00DCBCF1 /* Main.storyboard */; };
 		84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA901ECCDEAF00DCBCF1 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		84AA17341ED1F49200715D85 /* PDBBonusCreatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBBonusCreatorVC.swift; path = Controllers/Employees/PDBBonusCreatorVC.swift; sourceTree = "<group>"; };
+		84AA17371ED1FDE700715D85 /* AdditionalSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AdditionalSettings.storyboard; path = Controllers/AdditionalSettings/AdditionalSettings.storyboard; sourceTree = "<group>"; };
+		84AA17391ED201DD00715D85 /* PDBAdditionalSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBAdditionalSettingsVC.swift; path = Controllers/AdditionalSettings/PDBAdditionalSettingsVC.swift; sourceTree = "<group>"; };
+		84AA173B1ED2089E00715D85 /* PDBSizesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBSizesVC.swift; path = Controllers/AdditionalSettings/PDBSizesVC.swift; sourceTree = "<group>"; };
 		84D0AA861ECCDEAF00DCBCF1 /* EtnoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtnoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D0AA8E1ECCDEAF00DCBCF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84AA17361ED1FD7500715D85 /* AdditionalSettings */ = {
+			isa = PBXGroup;
+			children = (
+				84AA17371ED1FDE700715D85 /* AdditionalSettings.storyboard */,
+				84AA17391ED201DD00715D85 /* PDBAdditionalSettingsVC.swift */,
+				84AA173B1ED2089E00715D85 /* PDBSizesVC.swift */,
+			);
+			name = AdditionalSettings;
+			sourceTree = "<group>";
+		};
 		84D0AA7D1ECCDEAF00DCBCF1 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +111,7 @@
 		84D0AA9B1ECCFB9E00DCBCF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84AA17361ED1FD7500715D85 /* AdditionalSettings */,
 				84D0AAD31ED0F1C600DCBCF1 /* Employees */,
 				84D0AA9C1ECCFCD100DCBCF1 /* PDBMainMenuVC.swift */,
 			);
@@ -208,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AA17381ED1FDE700715D85 /* AdditionalSettings.storyboard in Resources */,
 				84D0AA941ECCDEAF00DCBCF1 /* LaunchScreen.storyboard in Resources */,
 				84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */,
 				84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */,
@@ -223,9 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AA173C1ED2089E00715D85 /* PDBSizesVC.swift in Sources */,
 				84D0AAAD1ECD760500DCBCF1 /* CoreDataManager.swift in Sources */,
 				84D0AA9D1ECCFCD100DCBCF1 /* PDBMainMenuVC.swift in Sources */,
 				84D0AAA21ECCFDEA00DCBCF1 /* PDBMenuCell.swift in Sources */,
+				84AA173A1ED201DD00715D85 /* PDBAdditionalSettingsVC.swift in Sources */,
 				84D0AA8A1ECCDEAF00DCBCF1 /* AppDelegate.swift in Sources */,
 				84AA17351ED1F49200715D85 /* PDBBonusCreatorVC.swift in Sources */,
 				84D0AAAA1ECD756900DCBCF1 /* EtnoShop.xcdatamodeld in Sources */,

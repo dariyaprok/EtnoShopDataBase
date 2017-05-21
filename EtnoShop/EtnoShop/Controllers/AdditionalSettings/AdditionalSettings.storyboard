@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Additional settings-->
+        <scene sceneID="A0V-KX-pSj">
+            <objects>
+                <viewController storyboardIdentifier="AdditionalSettingsVC" automaticallyAdjustsScrollViewInsets="NO" id="ZDs-1e-Iit" customClass="PDBAdditionalSettingsVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dBB-U5-bNX"/>
+                        <viewControllerLayoutGuide type="bottom" id="AaV-G0-OgE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U9f-UJ-TQ9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dVh-Tv-Stq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZDs-1e-Iit" id="oYC-A0-MyL"/>
+                                    <outlet property="delegate" destination="ZDs-1e-Iit" id="ppe-I4-oVq"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dVh-Tv-Stq" secondAttribute="trailing" id="KYa-bA-mV5"/>
+                            <constraint firstItem="dVh-Tv-Stq" firstAttribute="leading" secondItem="U9f-UJ-TQ9" secondAttribute="leading" id="goJ-cl-vxb"/>
+                            <constraint firstItem="dVh-Tv-Stq" firstAttribute="top" secondItem="dBB-U5-bNX" secondAttribute="bottom" id="ltA-P1-Gig"/>
+                            <constraint firstItem="AaV-G0-OgE" firstAttribute="top" secondItem="dVh-Tv-Stq" secondAttribute="bottom" id="uMB-Yg-oaW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Additional settings" id="gRe-Rw-Hkg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="additionalSettingsTableView" destination="dVh-Tv-Stq" id="Usw-0J-5aq"/>
+                        <segue destination="SbV-kS-wsk" kind="show" id="9C6-be-dM7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e42-3V-LIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="196"/>
+        </scene>
+        <!--Sizes-->
+        <scene sceneID="toX-Ac-JaQ">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="SbV-kS-wsk" customClass="PDBSizesVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2mI-sf-Bm6"/>
+                        <viewControllerLayoutGuide type="bottom" id="nPX-hN-PRu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6wY-hp-rTC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-KH-BFh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5BD-KH-BFh" firstAttribute="leading" secondItem="6wY-hp-rTC" secondAttribute="leading" id="3Pc-wS-CKT"/>
+                            <constraint firstAttribute="trailing" secondItem="5BD-KH-BFh" secondAttribute="trailing" id="BLf-Xc-veV"/>
+                            <constraint firstItem="5BD-KH-BFh" firstAttribute="top" secondItem="2mI-sf-Bm6" secondAttribute="bottom" id="Ja8-Sm-v24"/>
+                            <constraint firstItem="nPX-hN-PRu" firstAttribute="top" secondItem="5BD-KH-BFh" secondAttribute="bottom" id="KuB-lJ-htf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sizes" id="GV8-O3-SOq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="b1E-zL-1kL">
+                            <connections>
+                                <segue destination="Vyw-dq-hoP" kind="show" id="3p1-zc-dPl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0C-dw-iVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1105" y="196"/>
+        </scene>
+        <!--New size-->
+        <scene sceneID="GSc-um-pCA">
+            <objects>
+                <viewController id="Vyw-dq-hoP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KF7-ni-DmS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pjb-Jo-KAo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cj9-WU-6e9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New size" id="Oyk-XG-brQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lwt-w6-NED"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3O-cz-TGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1892" y="196"/>
+        </scene>
+    </scenes>
+</document>

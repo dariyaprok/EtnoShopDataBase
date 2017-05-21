@@ -28,7 +28,7 @@
         <!--Main MenuVC-->
         <scene sceneID="UT2-h6-jlj">
             <objects>
-                <viewController id="nku-k6-O9n" customClass="PDBMainMenuVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="nku-k6-O9n" customClass="PDBMainMenuVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H70-oa-9NA"/>
                         <viewControllerLayoutGuide type="bottom" id="UPw-yN-W11"/>
