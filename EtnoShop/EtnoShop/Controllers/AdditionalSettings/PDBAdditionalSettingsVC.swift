@@ -13,7 +13,7 @@ class PDBAdditionalSettingsVC: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var additionalSettingsTableView: UITableView!
     
     private let content = ["Products", "Sizes", "Areas", "Categories"]
-    private let viewControllers: [(storyboardName:String, vcId:String)] = [("", ""), ("AdditionalSettings", "PDBSizesVC"), ("AdditionalSettings", "PDBAreaListVCID"), ("Employees", "PDBEmployeesListVC"), ("","")]
+    private let viewControllers: [(storyboardName:String, vcId:String)] = [("", ""), ("AdditionalSettings", "PDBSizesVC"), ("AdditionalSettings", "PDBAreaListVCID"), ("AdditionalSettings", "PDBCategoryListVCID")]
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -33,11 +33,9 @@ class PDBAdditionalSettingsVC: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 || indexPath.row == 2 {
             let vcInfo = viewControllers[indexPath.row]
             let vc = UIStoryboard(name: vcInfo.storyboardName, bundle: nil).instantiateViewController(withIdentifier: vcInfo.vcId)
             self.navigationController?.pushViewController(vc, animated: true)
-        }
     }
     
     //MARK: - private

@@ -19,6 +19,35 @@ class CoreDataManager: NSObject {
     private let bonusEntityName = "Bonus"
     private let sizeEntityName = "Size"
     private let areaEntityName = "Area"
+    private let categoryEntityName = "Category"
+    
+    //MARK: - categories
+    public func loadAllCategories() -> [Category] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: categoryEntityName)
+        var categories:[Category] = []
+        do {
+            categories = try coreDataStack.managedObjectContext.fetch(request) as! [Category]
+            let records = try coreDataStack.managedObjectContext.fetch(request)
+            if let records = records as? [Category] {
+                categories = records
+            }
+        }
+        catch {
+            print("Can't load employees")
+        }
+        return categories
+    }
+    
+    public func addCategory(name: String) {
+        let category: Category = NSEntityDescription.insertNewObject(forEntityName: categoryEntityName, into: coreDataStack.managedObjectContext) as! Category
+        category.name = name
+        do {
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("Can't save moc")
+        }
+    }
     
     //MARK: - areas
     public func loadAllAreas() -> [Area] {

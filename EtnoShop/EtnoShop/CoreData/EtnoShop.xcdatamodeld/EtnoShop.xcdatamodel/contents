@@ -8,6 +8,9 @@
         <attribute name="dateOfCreation" attributeType="Date" defaultDateTimeInterval="516782220" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="employee" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="bonus" inverseEntity="Employee" syncable="YES"/>
     </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="name" attributeType="String" defaultValueString="category name" syncable="YES"/>
+    </entity>
     <entity name="Employee" representedClassName="Employee" syncable="YES">
         <attribute name="dateOfBirth" attributeType="Date" defaultDateTimeInterval="514190100" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateOfStartWork" attributeType="Date" defaultDateTimeInterval="516782100" usesScalarValueType="NO" syncable="YES"/>
@@ -26,5 +29,6 @@
         <element name="Employee" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Size" positionX="-54" positionY="36" width="128" height="90"/>
         <element name="Area" positionX="-27" positionY="63" width="128" height="60"/>
+        <element name="Category" positionX="-9" positionY="81" width="128" height="60"/>
     </elements>
 </model>
