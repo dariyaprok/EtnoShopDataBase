@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,7 +53,7 @@
         <!--Sizes-->
         <scene sceneID="toX-Ac-JaQ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="SbV-kS-wsk" customClass="PDBSizesVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PDBSizesVC" automaticallyAdjustsScrollViewInsets="NO" id="SbV-kS-wsk" customClass="PDBSizesVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2mI-sf-Bm6"/>
                         <viewControllerLayoutGuide type="bottom" id="nPX-hN-PRu"/>
@@ -64,6 +65,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-KH-BFh">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="SbV-kS-wsk" id="9tA-W1-TZ6"/>
+                                    <outlet property="delegate" destination="SbV-kS-wsk" id="ezY-JT-KnA"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,6 +86,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sizesTableView" destination="5BD-KH-BFh" id="jzy-PZ-m26"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0C-dw-iVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,7 +97,7 @@
         <!--New size-->
         <scene sceneID="GSc-um-pCA">
             <objects>
-                <viewController id="Vyw-dq-hoP" sceneMemberID="viewController">
+                <viewController id="Vyw-dq-hoP" customClass="PDBCreateSizeVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KF7-ni-DmS"/>
                         <viewControllerLayoutGuide type="bottom" id="Pjb-Jo-KAo"/>
@@ -97,11 +105,75 @@
                     <view key="view" contentMode="scaleToFill" id="Cj9-WU-6e9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kG-bN-bXI">
+                                <rect key="frame" x="16" y="99" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoulders length:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGh-NV-EP1">
+                                <rect key="frame" x="16" y="155" width="134.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waist length:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jX4-gP-gsp">
+                                <rect key="frame" x="16" y="211" width="99.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FTz-xm-2TB">
+                                <rect key="frame" x="76" y="96" width="283" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Shoulders length" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="60S-LV-UKD">
+                                <rect key="frame" x="160.5" y="152" width="198.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Waist length" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bid-u4-gUR">
+                                <rect key="frame" x="125.5" y="208" width="233.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="3kG-bN-bXI" secondAttribute="leading" id="4D5-F6-aBE"/>
+                            <constraint firstItem="3kG-bN-bXI" firstAttribute="top" secondItem="KF7-ni-DmS" secondAttribute="bottom" constant="35" id="CYA-zn-N7F"/>
+                            <constraint firstItem="60S-LV-UKD" firstAttribute="trailing" secondItem="FTz-xm-2TB" secondAttribute="trailing" id="Ce5-Bx-AgG"/>
+                            <constraint firstItem="60S-LV-UKD" firstAttribute="baseline" secondItem="LGh-NV-EP1" secondAttribute="baseline" id="L0y-rl-Tbc"/>
+                            <constraint firstItem="jX4-gP-gsp" firstAttribute="leading" secondItem="LGh-NV-EP1" secondAttribute="leading" id="NMq-Mz-FAi"/>
+                            <constraint firstItem="bid-u4-gUR" firstAttribute="trailing" secondItem="60S-LV-UKD" secondAttribute="trailing" id="Pg5-ko-LzR"/>
+                            <constraint firstItem="bid-u4-gUR" firstAttribute="leading" secondItem="jX4-gP-gsp" secondAttribute="trailing" constant="10" id="SLh-wz-JhE"/>
+                            <constraint firstItem="LGh-NV-EP1" firstAttribute="top" secondItem="3kG-bN-bXI" secondAttribute="bottom" constant="35" id="SzF-Wr-Ddp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FTz-xm-2TB" secondAttribute="trailing" id="YIj-tg-Gbd"/>
+                            <constraint firstItem="60S-LV-UKD" firstAttribute="leading" secondItem="LGh-NV-EP1" secondAttribute="trailing" constant="10" id="ZHR-bw-te8"/>
+                            <constraint firstItem="FTz-xm-2TB" firstAttribute="baseline" secondItem="3kG-bN-bXI" secondAttribute="baseline" id="Zmc-Cn-7IQ"/>
+                            <constraint firstItem="jX4-gP-gsp" firstAttribute="top" secondItem="LGh-NV-EP1" secondAttribute="bottom" constant="35" id="f43-rr-eiV"/>
+                            <constraint firstItem="LGh-NV-EP1" firstAttribute="leading" secondItem="3kG-bN-bXI" secondAttribute="leading" id="nP9-Fb-JH6"/>
+                            <constraint firstItem="bid-u4-gUR" firstAttribute="baseline" secondItem="jX4-gP-gsp" secondAttribute="baseline" id="tgL-lq-DBr"/>
+                            <constraint firstItem="FTz-xm-2TB" firstAttribute="leading" secondItem="3kG-bN-bXI" secondAttribute="trailing" constant="10" id="zbB-5t-845"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New size" id="Oyk-XG-brQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lwt-w6-NED"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lwt-w6-NED">
+                            <connections>
+                                <action selector="onSave:" destination="Vyw-dq-hoP" id="5BF-wB-PRf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="FTz-xm-2TB" id="ksh-IQ-KHR"/>
+                        <outlet property="shouldersLangthTextField" destination="60S-LV-UKD" id="YK4-sd-pUu"/>
+                        <outlet property="waistTextField" destination="bid-u4-gUR" id="OOl-kp-7vD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3O-cz-TGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,7 +9,7 @@
 import UIKit
 
 class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     //MARK: - properties
     @IBOutlet weak var employeeListTableView: UITableView!
     private var employees: [Employee]! {
@@ -28,7 +28,7 @@ class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewWillAppear(_ animated: Bool) {
         loadContent()
     }
-
+    
     //MARK: - table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employees.count
@@ -53,10 +53,12 @@ class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataS
         vc.isEditableMode = false
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
     //MARK: - private
     private func setupTableView() {
         employeeListTableView.register(UINib(nibName: PDBMenuCell.identifier, bundle: nil), forCellReuseIdentifier: PDBMenuCell.identifier)
+        employeeListTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: employeeListTableView.frame.size.width, height: 0))
+        
     }
     
     private func loadContent() {

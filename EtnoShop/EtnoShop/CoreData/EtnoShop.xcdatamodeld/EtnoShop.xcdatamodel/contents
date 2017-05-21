@@ -13,8 +13,14 @@
         <attribute name="sallary" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="bonus" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bonus" inverseName="employee" inverseEntity="Bonus" syncable="YES"/>
     </entity>
+    <entity name="Size" representedClassName="Size" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shoulderLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="waistLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Employee" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Bonus" positionX="-54" positionY="27" width="128" height="90"/>
+        <element name="Employee" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Size" positionX="-54" positionY="36" width="128" height="90"/>
     </elements>
 </model>

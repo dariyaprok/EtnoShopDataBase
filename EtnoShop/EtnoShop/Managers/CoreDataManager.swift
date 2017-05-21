@@ -17,6 +17,37 @@ class CoreDataManager: NSObject {
     
     private let employeeEntityName = "Employee"
     private let bonusEntityName = "Bonus"
+    private let sizeEntityName = "Size"
+    
+    //MARK: - load all sizes
+    public func loadAllSizes() -> [Size] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: sizeEntityName)
+        var sizes:[Size] = []
+        do {
+            sizes = try coreDataStack.managedObjectContext.fetch(request) as! [Size]
+            let records = try coreDataStack.managedObjectContext.fetch(request)
+            if let records = records as? [Size] {
+                sizes = records
+            }
+        }
+        catch {
+            print("Can't load employees")
+        }
+        return sizes
+    }
+    
+    public func addSize(name: String, shoulderLength: Int16, waistLength: Int16) {
+        let size: Size = NSEntityDescription.insertNewObject(forEntityName: sizeEntityName, into: coreDataStack.managedObjectContext) as! Size
+        size.name = name
+        size.shoulderLength = shoulderLength
+        size.waistLength = waistLength
+        do {
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("Can't save moc")
+        }
+    }
     
     //MARK: - Bonuses
     public func addBonus(employee: Employee, dateOfCreation: Date, amout: Int16) {
