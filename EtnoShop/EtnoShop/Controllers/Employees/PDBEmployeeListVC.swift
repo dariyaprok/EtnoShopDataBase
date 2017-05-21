@@ -12,7 +12,7 @@ class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //MARK: - properties
     @IBOutlet weak var employeeListTableView: UITableView!
-    private var employees: [Employee]! {
+    private var employees: [Employee] = [] {
         didSet {
             employeeListTableView.reloadData()
         }

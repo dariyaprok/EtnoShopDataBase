@@ -44,6 +44,7 @@
                     <connections>
                         <outlet property="additionalSettingsTableView" destination="dVh-Tv-Stq" id="Usw-0J-5aq"/>
                         <segue destination="SbV-kS-wsk" kind="show" id="9C6-be-dM7"/>
+                        <segue destination="miQ-1g-ovc" kind="show" id="D2j-hR-6gm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e42-3V-LIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,7 +93,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0C-dw-iVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="196"/>
+            <point key="canvasLocation" x="879" y="196"/>
+        </scene>
+        <!--Areas-->
+        <scene sceneID="oeO-tB-Ui9">
+            <objects>
+                <viewController storyboardIdentifier="PDBAreaListVCID" automaticallyAdjustsScrollViewInsets="NO" id="miQ-1g-ovc" customClass="PDBAreaListVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7zy-Af-VCl"/>
+                        <viewControllerLayoutGuide type="bottom" id="E9u-xq-39y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CYw-uV-eE8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="izE-H0-pkG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="miQ-1g-ovc" id="zr2-Io-OfU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="izE-H0-pkG" secondAttribute="trailing" id="RKO-kg-NOI"/>
+                            <constraint firstItem="izE-H0-pkG" firstAttribute="leading" secondItem="CYw-uV-eE8" secondAttribute="leading" id="eai-Lx-EvA"/>
+                            <constraint firstItem="E9u-xq-39y" firstAttribute="top" secondItem="izE-H0-pkG" secondAttribute="bottom" id="jL1-a9-eVQ"/>
+                            <constraint firstItem="izE-H0-pkG" firstAttribute="top" secondItem="7zy-Af-VCl" secondAttribute="bottom" id="rkc-nR-FPq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Areas" id="F8F-YW-bDx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SgJ-8u-LTh">
+                            <connections>
+                                <segue destination="387-I1-0NY" kind="show" id="Hax-HM-XKt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="izE-H0-pkG" id="pM0-zI-PRh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJ5-Vr-lzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="914"/>
+        </scene>
+        <!--New area-->
+        <scene sceneID="FWu-SG-89e">
+            <objects>
+                <viewController id="387-I1-0NY" customClass="PDBCreateAreaVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b6S-jr-muF"/>
+                        <viewControllerLayoutGuide type="bottom" id="A26-ev-qVf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J42-ZW-5uj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3M-Lt-qp9">
+                                <rect key="frame" x="16" y="99" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-aR-Yr3">
+                                <rect key="frame" x="76" y="96" width="283" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9hh-aR-Yr3" firstAttribute="leading" secondItem="p3M-Lt-qp9" secondAttribute="trailing" constant="10" id="8f4-HD-bY7"/>
+                            <constraint firstItem="p3M-Lt-qp9" firstAttribute="top" secondItem="b6S-jr-muF" secondAttribute="bottom" constant="35" id="ACE-Fl-H2O"/>
+                            <constraint firstItem="p3M-Lt-qp9" firstAttribute="leading" secondItem="J42-ZW-5uj" secondAttribute="leadingMargin" id="VF9-o4-xEx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9hh-aR-Yr3" secondAttribute="trailing" id="YEu-bl-R6j"/>
+                            <constraint firstItem="9hh-aR-Yr3" firstAttribute="baseline" secondItem="p3M-Lt-qp9" secondAttribute="baseline" id="c4S-vA-vhX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New area" id="hjh-w4-PlF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tHh-lZ-WoU">
+                            <connections>
+                                <action selector="onSave:" destination="387-I1-0NY" id="hX6-Y7-RZf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameAreaTextField" destination="9hh-aR-Yr3" id="G9q-Sq-fCK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KIs-Xi-Vax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1580" y="913"/>
         </scene>
         <!--New size-->
         <scene sceneID="GSc-um-pCA">
@@ -177,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3O-cz-TGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="196"/>
+            <point key="canvasLocation" x="1580" y="196"/>
         </scene>
     </scenes>
 </document>
