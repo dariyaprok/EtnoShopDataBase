@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "textFieldDidBeginEditing(_:)"
+            landmarkName = "prepareUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EtnoShop/Managers/CoreDataManager.swift"
-            timestampString = "517071678.030156"
+            timestampString = "517077501.640815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "addEmployee(name:dateOfBirth:dateOfStartWork:phoneNumber:sallary:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EtnoShop/Managers/CoreDataManager.swift"
-            timestampString = "517071678.030156"
+            timestampString = "517077501.640815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "addEmployee(name:dateOfBirth:dateOfStartWork:phoneNumber:sallary:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -86,7 +86,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EtnoShop/Controllers/Employees/PDBEmployeeListVC.swift"
@@ -96,22 +96,6 @@
             startingLineNumber = "46"
             endingLineNumber = "46"
             landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EtnoShop/Controllers/Employees/PDBEmployeeCreatorVC.swift"
-            timestampString = "517071773.992149"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "prepareUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -150,7 +134,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EtnoShop/Controllers/Employees/PDBEmployeeCreatorVC.swift"

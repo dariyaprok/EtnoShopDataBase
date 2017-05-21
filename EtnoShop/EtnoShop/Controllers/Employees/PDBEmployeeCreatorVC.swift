@@ -16,6 +16,7 @@ class PDBEmployeeCreatorVC: UIViewController {
     @IBOutlet weak var sallaryTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var startWorkTextField: UITextField!
+    @IBOutlet weak var bonusesBarButton: UIBarButtonItem!
     
     var isEditableMode: Bool = false
     var employee: Employee! {
@@ -54,6 +55,13 @@ class PDBEmployeeCreatorVC: UIViewController {
         activeTextField?.text = formatter.string(from: datePicker.date)
     }
     
+    @IBAction func showBonusesList(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Employees", bundle: nil).instantiateViewController(withIdentifier: PDBBonusListVC.identifier) as! PDBBonusListVC
+        vc.employee = employee
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    
     //MARK: - private
     private func setupUI() {
         formatter.dateFormat = "dd.MM.yyyy"
@@ -71,6 +79,7 @@ class PDBEmployeeCreatorVC: UIViewController {
     }
     
     private func prepareUI() {
+        bonusesBarButton.isEnabled = isEditableMode
         if isEditableMode {
             nameTextField.text = employee!.name
             birthdayTextField.text = formatter.string(from: employee!.dateOfBirth! as Date)

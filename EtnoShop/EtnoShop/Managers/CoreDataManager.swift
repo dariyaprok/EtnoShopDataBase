@@ -14,7 +14,24 @@ class CoreDataManager: NSObject {
     
     private let coreDataStack = CoreDataStack(modelName: "EtnoShop")
     static let sharedInstanse = CoreDataManager()
+    
     private let employeeEntityName = "Employee"
+    private let bonusEntityName = "Bonus"
+    
+    //MARK: - Bonuses
+    public func addBonus(employee: Employee, dateOfCreation: Date, amout: Int16) {
+        let bonus = NSEntityDescription.insertNewObject(forEntityName: bonusEntityName, into: coreDataStack.managedObjectContext) as! Bonus
+        bonus.amount = amout
+        bonus.dateOfCreation = dateOfCreation as NSDate?
+        bonus.employee = employee
+        employee.addToBonus(bonus)
+        do {
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("Can't save moc")
+        }
+    }
     
     //MARK: - Employees
     public func loadAllEmployees() -> [Employee]? {

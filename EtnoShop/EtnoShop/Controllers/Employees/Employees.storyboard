@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -199,24 +200,145 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Employee" id="BjD-Vo-Uq0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="m4S-Ad-vYv">
-                            <connections>
-                                <action selector="onSave:" destination="clf-65-fDU" id="NCZ-lj-tDf"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="m4S-Ad-vYv">
+                                <connections>
+                                    <action selector="onSave:" destination="clf-65-fDU" id="NCZ-lj-tDf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Bonuses" id="k9I-Ef-4gg">
+                                <connections>
+                                    <action selector="showBonusesList:" destination="clf-65-fDU" id="AZG-8a-eK4"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="birthdayTextField" destination="HfI-FA-FTe" id="LBg-dR-4Bs"/>
+                        <outlet property="bonusesBarButton" destination="k9I-Ef-4gg" id="xVK-S1-DRY"/>
                         <outlet property="mobilePhone" destination="2tb-z2-obK" id="k19-0D-Iec"/>
                         <outlet property="nameTextField" destination="Fbp-MP-9Fh" id="q2E-c6-FgS"/>
                         <outlet property="sallaryTextField" destination="FBt-sg-50R" id="CKK-nO-Aca"/>
                         <outlet property="startWorkTextField" destination="a7A-S9-2uw" id="Dr2-Hr-iih"/>
+                        <segue destination="xfQ-EE-MsR" kind="show" id="mvw-3K-ao1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRa-4f-gp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2343" y="-48"/>
+        </scene>
+        <!--Bonuses-->
+        <scene sceneID="8ip-YX-Ryb">
+            <objects>
+                <viewController storyboardIdentifier="bonusesListVC" automaticallyAdjustsScrollViewInsets="NO" id="xfQ-EE-MsR" customClass="PDBBonusListVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w8I-pz-FPc"/>
+                        <viewControllerLayoutGuide type="bottom" id="F1A-It-f1e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QDe-MR-nrh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LSa-9Y-eXc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xfQ-EE-MsR" id="MUe-rn-a51"/>
+                                    <outlet property="delegate" destination="xfQ-EE-MsR" id="cFS-re-gpS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LSa-9Y-eXc" firstAttribute="leading" secondItem="QDe-MR-nrh" secondAttribute="leading" id="Syy-qd-Ryj"/>
+                            <constraint firstAttribute="trailing" secondItem="LSa-9Y-eXc" secondAttribute="trailing" id="s24-PM-4fp"/>
+                            <constraint firstItem="LSa-9Y-eXc" firstAttribute="top" secondItem="w8I-pz-FPc" secondAttribute="bottom" id="vgT-b4-sKy"/>
+                            <constraint firstItem="F1A-It-f1e" firstAttribute="top" secondItem="LSa-9Y-eXc" secondAttribute="bottom" id="wF1-FJ-uBL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bonuses" id="BN3-De-SvG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fil-Jj-YfF">
+                            <connections>
+                                <action selector="onAddBonus:" destination="xfQ-EE-MsR" id="tXj-0v-H1Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bonusesTableView" destination="LSa-9Y-eXc" id="neP-Bt-tHC"/>
+                        <segue destination="sXq-Lc-8sg" kind="show" id="pWe-4M-IOf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7r1-ov-kue" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3129" y="-48"/>
+        </scene>
+        <!--Bonus-->
+        <scene sceneID="kaH-Hk-Roc">
+            <objects>
+                <viewController storyboardIdentifier="BonusCreatorVCID" automaticallyAdjustsScrollViewInsets="NO" id="sXq-Lc-8sg" customClass="PDBBonusCreatorVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oao-6c-5ij"/>
+                        <viewControllerLayoutGuide type="bottom" id="9gL-6c-91k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hGf-gK-c5T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrK-DE-BZ6">
+                                <rect key="frame" x="16" y="99" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="80K-eF-2UG">
+                                <rect key="frame" x="91" y="96" width="268" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcN-P1-6U3">
+                                <rect key="frame" x="16" y="156" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="01.01.2016" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QF8-0Q-ene">
+                                <rect key="frame" x="67" y="153" width="292" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="80K-eF-2UG" secondAttribute="trailing" id="2Zl-KE-luw"/>
+                            <constraint firstItem="QF8-0Q-ene" firstAttribute="trailing" secondItem="80K-eF-2UG" secondAttribute="trailing" id="7pK-Yt-t99"/>
+                            <constraint firstItem="QF8-0Q-ene" firstAttribute="leading" secondItem="VcN-P1-6U3" secondAttribute="trailing" constant="10" id="AOx-GI-M65"/>
+                            <constraint firstItem="VcN-P1-6U3" firstAttribute="top" secondItem="DrK-DE-BZ6" secondAttribute="bottom" constant="36" id="KMe-LI-PSf"/>
+                            <constraint firstItem="DrK-DE-BZ6" firstAttribute="top" secondItem="Oao-6c-5ij" secondAttribute="bottom" constant="35" id="cI1-SE-rTL"/>
+                            <constraint firstItem="80K-eF-2UG" firstAttribute="leading" secondItem="DrK-DE-BZ6" secondAttribute="trailing" constant="10" id="djM-AP-MH7"/>
+                            <constraint firstItem="80K-eF-2UG" firstAttribute="baseline" secondItem="DrK-DE-BZ6" secondAttribute="baseline" id="hni-6r-dBe"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="DrK-DE-BZ6" secondAttribute="leading" id="krK-pU-SbC"/>
+                            <constraint firstItem="VcN-P1-6U3" firstAttribute="leading" secondItem="DrK-DE-BZ6" secondAttribute="leading" id="sN8-lj-rND"/>
+                            <constraint firstItem="QF8-0Q-ene" firstAttribute="baseline" secondItem="VcN-P1-6U3" secondAttribute="baseline" id="zv7-HJ-RT5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bonus" id="1Dc-ZX-qmj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mx1-ov-l1H">
+                            <connections>
+                                <action selector="onSave:" destination="sXq-Lc-8sg" id="SSQ-vn-Rv7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amountTextField" destination="80K-eF-2UG" id="ymf-ar-exQ"/>
+                        <outlet property="dateTextField" destination="QF8-0Q-ene" id="FNv-BP-pVv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0Y-tK-tDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3878" y="-48"/>
         </scene>
     </scenes>
 </document>
