@@ -1,21 +1,21 @@
 //
-//  PDBAreaListVC.swift
+//  PDBProductListVC.swift
 //  EtnoShop
 //
-//  Created by админ on 5/21/17.
+//  Created by админ on 5/22/17.
 //  Copyright © 2017 dashaproduction. All rights reserved.
 //
 
 import UIKit
 
-class PDBAreaListVC: UIViewController, UITableViewDataSource, PDBProductParameterPicker {
-
+class PDBProductListVC: UIViewController, UITableViewDataSource {
+    
+    static let identifier = "PDBProductListVC"
+    
     //MARK: - properties
     @IBOutlet weak var tableView: UITableView!
     
-    private var productPickerDelegate: PDBProductParameterPickerDelegate?
-    
-    var areas: [Area] = [] {
+    var products: [Product] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -31,19 +31,18 @@ class PDBAreaListVC: UIViewController, UITableViewDataSource, PDBProductParamete
         loadContent()
     }
     
-    //MARK: - product parametrPicker
-    func setDelegate(delegate: PDBProductParameterPickerDelegate) {
-        productPickerDelegate = delegate
+    //MARK: - IBActions
+    @IBAction func onAdd(_ sender: Any) {
     }
     
     //MARK: - table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return areas.count
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PDBMenuCell = tableView.dequeueReusableCell(withIdentifier: PDBMenuCell.identifier, for: indexPath) as! PDBMenuCell
-        cell.mainTextLabel.text = areas[indexPath.row].name
+        cell.mainTextLabel.text = products[indexPath.row].name
         return cell
     }
     
@@ -54,8 +53,10 @@ class PDBAreaListVC: UIViewController, UITableViewDataSource, PDBProductParamete
     }
     
     func loadContent() {
-        areas = CoreDataManager.sharedInstanse.loadAllAreas()
+        products = CoreDataManager.sharedInstanse.loadAllProducts()
     }
-
+    
+    
+    
 
 }

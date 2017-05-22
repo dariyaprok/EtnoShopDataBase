@@ -19,6 +19,7 @@
 		84AA17511ED23DB000715D85 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA174F1ED23DB000715D85 /* Category.swift */; };
 		84AA17541ED23E4200715D85 /* PDBCategoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17531ED23E4200715D85 /* PDBCategoryListVC.swift */; };
 		84AA17561ED23FB200715D85 /* PDBCreateCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17551ED23FB200715D85 /* PDBCreateCategoryVC.swift */; };
+		84AA17591ED2444700715D85 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17571ED2444700715D85 /* Product.swift */; };
 		84D0AA8A1ECCDEAF00DCBCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */; };
 		84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA8D1ECCDEAF00DCBCF1 /* Main.storyboard */; };
 		84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA901ECCDEAF00DCBCF1 /* Assets.xcassets */; };
@@ -35,6 +36,8 @@
 		84D0AAD71ED0F55A00DCBCF1 /* Employees.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AAD61ED0F55A00DCBCF1 /* Employees.storyboard */; };
 		84D0AAD91ED16E1400DCBCF1 /* PDBEmployeeCreatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AAD81ED16E1400DCBCF1 /* PDBEmployeeCreatorVC.swift */; };
 		84D0AADC1ED1E98300DCBCF1 /* PDBBonusListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AADB1ED1E98300DCBCF1 /* PDBBonusListVC.swift */; };
+		84D770CC1ED37D6200B3F3F3 /* PDBProductListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D770CB1ED37D6200B3F3F3 /* PDBProductListVC.swift */; };
+		84D770CE1ED37F7A00B3F3F3 /* PDBProductCreatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D770CD1ED37F7A00B3F3F3 /* PDBProductCreatorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,7 @@
 		84AA174F1ED23DB000715D85 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Models/Category.swift; sourceTree = "<group>"; };
 		84AA17531ED23E4200715D85 /* PDBCategoryListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBCategoryListVC.swift; path = Controllers/AdditionalSettings/PDBCategoryListVC.swift; sourceTree = "<group>"; };
 		84AA17551ED23FB200715D85 /* PDBCreateCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBCreateCategoryVC.swift; path = Controllers/AdditionalSettings/PDBCreateCategoryVC.swift; sourceTree = "<group>"; };
+		84AA17571ED2444700715D85 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Models/Product.swift; sourceTree = "<group>"; };
 		84D0AA861ECCDEAF00DCBCF1 /* EtnoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtnoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D0AA8E1ECCDEAF00DCBCF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		84D0AAD61ED0F55A00DCBCF1 /* Employees.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Employees.storyboard; path = Controllers/Employees/Employees.storyboard; sourceTree = "<group>"; };
 		84D0AAD81ED16E1400DCBCF1 /* PDBEmployeeCreatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBEmployeeCreatorVC.swift; path = Controllers/Employees/PDBEmployeeCreatorVC.swift; sourceTree = "<group>"; };
 		84D0AADB1ED1E98300DCBCF1 /* PDBBonusListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBBonusListVC.swift; path = Controllers/Employees/PDBBonusListVC.swift; sourceTree = "<group>"; };
+		84D770CB1ED37D6200B3F3F3 /* PDBProductListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBProductListVC.swift; path = Controllers/AdditionalSettings/PDBProductListVC.swift; sourceTree = "<group>"; };
+		84D770CD1ED37F7A00B3F3F3 /* PDBProductCreatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBProductCreatorVC.swift; path = Controllers/AdditionalSettings/PDBProductCreatorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,8 @@
 				84AA174D1ED23B1900715D85 /* PDBCreateAreaVC.swift */,
 				84AA17531ED23E4200715D85 /* PDBCategoryListVC.swift */,
 				84AA17551ED23FB200715D85 /* PDBCreateCategoryVC.swift */,
+				84D770CB1ED37D6200B3F3F3 /* PDBProductListVC.swift */,
+				84D770CD1ED37F7A00B3F3F3 /* PDBProductCreatorVC.swift */,
 			);
 			name = AdditionalSettings;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 		84D0AAAE1ECD787400DCBCF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84AA17571ED2444700715D85 /* Product.swift */,
 				84AA174F1ED23DB000715D85 /* Category.swift */,
 				84AA17491ED2365800715D85 /* Area.swift */,
 				84D0AACF1ED0615E00DCBCF1 /* Bonus.swift */,
@@ -221,8 +230,7 @@
 				TargetAttributes = {
 					84D0AA851ECCDEAF00DCBCF1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = L748ZMC8YR;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -277,13 +285,16 @@
 				84D0AA8A1ECCDEAF00DCBCF1 /* AppDelegate.swift in Sources */,
 				84AA17351ED1F49200715D85 /* PDBBonusCreatorVC.swift in Sources */,
 				84D0AAAA1ECD756900DCBCF1 /* EtnoShop.xcdatamodeld in Sources */,
+				84D770CE1ED37F7A00B3F3F3 /* PDBProductCreatorVC.swift in Sources */,
 				84D0AAD51ED0F1FA00DCBCF1 /* PDBEmployeeListVC.swift in Sources */,
+				84D770CC1ED37D6200B3F3F3 /* PDBProductListVC.swift in Sources */,
 				84D0AAD91ED16E1400DCBCF1 /* PDBEmployeeCreatorVC.swift in Sources */,
 				84D0AAC91ED05DD900DCBCF1 /* Employee.swift in Sources */,
 				84AA17511ED23DB000715D85 /* Category.swift in Sources */,
 				84D0AAA71ECD755600DCBCF1 /* CoreDataStack.swift in Sources */,
 				84D0AAD11ED0615E00DCBCF1 /* Bonus.swift in Sources */,
 				84AA174E1ED23B1900715D85 /* PDBCreateAreaVC.swift in Sources */,
+				84AA17591ED2444700715D85 /* Product.swift in Sources */,
 				84D0AADC1ED1E98300DCBCF1 /* PDBBonusListVC.swift in Sources */,
 				84AA17421ED213D700715D85 /* PDBCreateSizeVC.swift in Sources */,
 				84AA173F1ED20AAE00715D85 /* Size.swift in Sources */,
@@ -413,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = L748ZMC8YR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EtnoShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -431,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = L748ZMC8YR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EtnoShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

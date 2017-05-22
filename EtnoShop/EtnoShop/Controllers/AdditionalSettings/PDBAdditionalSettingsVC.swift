@@ -13,7 +13,7 @@ class PDBAdditionalSettingsVC: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var additionalSettingsTableView: UITableView!
     
     private let content = ["Products", "Sizes", "Areas", "Categories"]
-    private let viewControllers: [(storyboardName:String, vcId:String)] = [("", ""), ("AdditionalSettings", "PDBSizesVC"), ("AdditionalSettings", "PDBAreaListVCID"), ("AdditionalSettings", "PDBCategoryListVCID")]
+    private let viewControllers: [(storyboardName:String, vcId:String)] = [("AdditionalSettings", PDBProductListVC.identifier), ("AdditionalSettings", "PDBSizesVC"), ("AdditionalSettings", "PDBAreaListVCID"), ("AdditionalSettings", "PDBCategoryListVCID")]
     
     //MARK: - life cycle
     override func viewDidLoad() {

@@ -8,15 +8,22 @@
 
 import UIKit
 
-class PDBCategoryListVC: UIViewController, UITableViewDataSource {
+class PDBCategoryListVC: UIViewController, UITableViewDataSource, PDBProductParameterPicker {
 
     //MARK: - properties
     @IBOutlet weak var tableView: UITableView!
+    
+    private var productPickerDelegate :PDBProductParameterPickerDelegate?
     
     var categories: [Category] = [] {
         didSet {
             tableView.reloadData()
         }
+    }
+    
+    //MARK: - product parametrPicker
+    func setDelegate(delegate: PDBProductParameterPickerDelegate) {
+        productPickerDelegate = delegate
     }
     
     //MARK: - life cycle

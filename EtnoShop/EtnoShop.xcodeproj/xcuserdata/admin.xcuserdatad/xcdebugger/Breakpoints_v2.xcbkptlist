@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EtnoShop/Managers/CoreDataManager.swift"
-            timestampString = "517095931.026154"
+            timestampString = "517179039.265528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "addEmployee(name:dateOfBirth:dateOfStartWork:phoneNumber:sallary:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EtnoShop/Managers/CoreDataManager.swift"
-            timestampString = "517095931.026154"
+            timestampString = "517179039.265528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "addEmployee(name:dateOfBirth:dateOfStartWork:phoneNumber:sallary:)"
             landmarkType = "7">
          </BreakpointContent>
