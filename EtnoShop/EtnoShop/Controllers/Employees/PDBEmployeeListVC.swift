@@ -8,7 +8,9 @@
 
 import UIKit
 
-class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, PDBProductParameterPicker {
+    
+    static let identifier = "PDBEmployeesListVC"
     
     //MARK: - properties
     @IBOutlet weak var employeeListTableView: UITableView!
@@ -17,6 +19,9 @@ class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataS
             employeeListTableView.reloadData()
         }
     }
+    
+    var isPickingMode: Bool = false
+    var pickingDelegate: PDBProductParameterPickerDelegate?
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -27,6 +32,11 @@ class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewWillAppear(_ animated: Bool) {
         loadContent()
+    }
+    
+    //MARK: - picker delegate
+    func setDelegate(delegate: PDBProductParameterPickerDelegate) {
+        pickingDelegate = delegate
     }
     
     //MARK: - table view
@@ -41,10 +51,17 @@ class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard.init(name: "Employees", bundle: nil).instantiateViewController(withIdentifier: "PDBEmployeeCreator") as! PDBEmployeeCreatorVC
-        vc.isEditableMode = true
-        vc.employee = employees[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        if isPickingMode {
+            pickingDelegate?.viewControllerPickParameter(data: employees[indexPath.row])
+            navigationController?.popViewController(animated: true)
+        }
+        else {
+            let vc = UIStoryboard.init(name: "Employees", bundle: nil).instantiateViewController(withIdentifier: "PDBEmployeeCreator") as! PDBEmployeeCreatorVC
+            vc.isEditableMode = true
+            vc.employee = employees[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     //MARK: - IBActions

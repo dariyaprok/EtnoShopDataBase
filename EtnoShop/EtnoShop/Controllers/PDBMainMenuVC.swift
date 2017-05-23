@@ -13,7 +13,7 @@ class PDBMainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet private weak var tableView: UITableView!
     
     private let content = ["Склад", "Продажі", "Прибутки", "Працівники", "Додаткові настройки"]
-    private let viewControllers: [(storyboardName:String, vcId:String)] = [("Arrival", PDBArrivalListVC.identifier), ("", ""), ("", ""), ("Employees", "PDBEmployeesListVC"), ("AdditionalSettings","AdditionalSettingsVC")]
+    private let viewControllers: [(storyboardName:String, vcId:String)] = [("Arrival", PDBArrivalListVC.identifier), ("Sales", PDBSalesListVC.identifier), ("", ""), ("Employees", "PDBEmployeesListVC"), ("AdditionalSettings","AdditionalSettingsVC")]
     
     
     override func viewDidLoad() {

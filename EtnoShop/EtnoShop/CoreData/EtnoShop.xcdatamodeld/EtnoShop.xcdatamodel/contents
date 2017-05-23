@@ -31,6 +31,14 @@
         <relationship name="area" maxCount="1" deletionRule="Nullify" destinationEntity="Area" syncable="YES"/>
         <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="Category" syncable="YES"/>
     </entity>
+    <entity name="Sale" representedClassName="Sale" syncable="YES">
+        <attribute name="amount" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="517256940" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="pricePerOne" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" syncable="YES"/>
+        <relationship name="salesman" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="size" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Size" syncable="YES"/>
+    </entity>
     <entity name="Size" representedClassName="Size" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shoulderLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -38,11 +46,12 @@
     </entity>
     <elements>
         <element name="Area" positionX="-27" positionY="63" width="128" height="60"/>
+        <element name="Arrival" positionX="-36" positionY="63" width="128" height="120"/>
         <element name="Bonus" positionX="-54" positionY="27" width="128" height="90"/>
         <element name="Category" positionX="-9" positionY="81" width="128" height="60"/>
         <element name="Employee" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Product" positionX="9" positionY="90" width="128" height="90"/>
         <element name="Size" positionX="-54" positionY="36" width="128" height="90"/>
-        <element name="Arrival" positionX="-36" positionY="63" width="128" height="120"/>
+        <element name="Sale" positionX="-27" positionY="81" width="128" height="135"/>
     </elements>
 </model>

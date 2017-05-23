@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sales-->
+        <scene sceneID="Fjs-Yp-ecO">
+            <objects>
+                <viewController storyboardIdentifier="PDBSalesListID" automaticallyAdjustsScrollViewInsets="NO" id="p3U-JJ-dwT" customClass="PDBSalesListVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dit-Cy-lSR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yyw-Le-D1z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h6r-49-L7M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JFq-CV-qUs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="p3U-JJ-dwT" id="JMf-gp-E7a"/>
+                                    <outlet property="delegate" destination="p3U-JJ-dwT" id="tfC-ud-UUk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JFq-CV-qUs" firstAttribute="top" secondItem="Dit-Cy-lSR" secondAttribute="bottom" id="Uzp-BK-iTj"/>
+                            <constraint firstItem="Yyw-Le-D1z" firstAttribute="top" secondItem="JFq-CV-qUs" secondAttribute="bottom" id="Y7T-Fy-FF1"/>
+                            <constraint firstAttribute="trailing" secondItem="JFq-CV-qUs" secondAttribute="trailing" id="i8W-rF-Ah1"/>
+                            <constraint firstItem="JFq-CV-qUs" firstAttribute="leading" secondItem="h6r-49-L7M" secondAttribute="leading" id="qnX-Ws-OFH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sales" id="BVj-lb-IPa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QHq-vr-9cj">
+                            <connections>
+                                <action selector="onAdd:" destination="p3U-JJ-dwT" id="397-6H-4Cb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="JFq-CV-qUs" id="Lv2-Br-zfI"/>
+                        <segue destination="bHn-Nw-rDb" kind="show" id="GGk-HZ-Hgr">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDV-xD-Uft" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="136"/>
+        </scene>
+        <!--Sales-->
+        <scene sceneID="K5y-Lg-0Iy">
+            <objects>
+                <viewController storyboardIdentifier="PDBSaleCreatorVC" id="bHn-Nw-rDb" customClass="PDBSaleCreatorVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yn1-k4-lBJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="cWi-K5-1fk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ghQ-ez-SwB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0c-rH-cyA">
+                                <rect key="frame" x="16" y="99" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDZ-CI-QI5">
+                                <rect key="frame" x="16" y="155" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price per 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4N-2H-Ye2">
+                                <rect key="frame" x="16" y="211" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQW-dB-xb8">
+                                <rect key="frame" x="16" y="267" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hm-11-oYT">
+                                <rect key="frame" x="16" y="323" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RMA-dV-QqP">
+                                <rect key="frame" x="91" y="96" width="268" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bHn-Nw-rDb" id="LH1-Sf-ZOO"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RSh-37-p8O">
+                                <rect key="frame" x="67" y="152" width="292" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bHn-Nw-rDb" id="ilf-VH-38v"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price per 1" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lU7-0G-2xI">
+                                <rect key="frame" x="112" y="208" width="247" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bHn-Nw-rDb" id="LWl-4x-XkF"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Csp-Jb-SPb">
+                                <rect key="frame" x="92" y="264" width="267" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bHn-Nw-rDb" id="UHt-R8-NsB"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Size" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wll-HO-BIw">
+                                <rect key="frame" x="63" y="320" width="296" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bHn-Nw-rDb" id="mJd-0W-EOw"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salesman:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAB-av-jhu">
+                                <rect key="frame" x="16" y="377" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Salesman" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bFm-Xf-CCU">
+                                <rect key="frame" x="105" y="374" width="254" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bHn-Nw-rDb" id="nae-7f-xC8"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wll-HO-BIw" firstAttribute="leading" secondItem="1hm-11-oYT" secondAttribute="trailing" constant="10" id="5dh-c6-LRV"/>
+                            <constraint firstItem="RSh-37-p8O" firstAttribute="baseline" secondItem="DDZ-CI-QI5" secondAttribute="baseline" id="Arx-hK-BJZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Csp-Jb-SPb" secondAttribute="trailing" id="BIO-Jg-bKG"/>
+                            <constraint firstItem="AQW-dB-xb8" firstAttribute="top" secondItem="h4N-2H-Ye2" secondAttribute="bottom" constant="35" id="CpA-QM-u5r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RSh-37-p8O" secondAttribute="trailing" id="G9C-CY-fzp"/>
+                            <constraint firstItem="lU7-0G-2xI" firstAttribute="baseline" secondItem="h4N-2H-Ye2" secondAttribute="baseline" id="Ho6-38-Luw"/>
+                            <constraint firstItem="Csp-Jb-SPb" firstAttribute="leading" secondItem="AQW-dB-xb8" secondAttribute="trailing" constant="10" id="JfU-uv-4Hh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="B0c-rH-cyA" secondAttribute="leading" id="LgG-f2-kTz"/>
+                            <constraint firstItem="h4N-2H-Ye2" firstAttribute="leading" secondItem="DDZ-CI-QI5" secondAttribute="leading" id="Niq-nH-6Hy"/>
+                            <constraint firstItem="Csp-Jb-SPb" firstAttribute="baseline" secondItem="AQW-dB-xb8" secondAttribute="baseline" id="Pgm-Cg-C74"/>
+                            <constraint firstItem="RSh-37-p8O" firstAttribute="leading" secondItem="DDZ-CI-QI5" secondAttribute="trailing" constant="10" id="Q9J-Kw-cn1"/>
+                            <constraint firstItem="B0c-rH-cyA" firstAttribute="top" secondItem="Yn1-k4-lBJ" secondAttribute="bottom" constant="35" id="Qk1-gI-Dhq"/>
+                            <constraint firstItem="AQW-dB-xb8" firstAttribute="leading" secondItem="h4N-2H-Ye2" secondAttribute="leading" id="V94-nM-Yym"/>
+                            <constraint firstItem="RMA-dV-QqP" firstAttribute="leading" secondItem="B0c-rH-cyA" secondAttribute="trailing" constant="10" id="VE8-WL-KTn"/>
+                            <constraint firstItem="1hm-11-oYT" firstAttribute="top" secondItem="AQW-dB-xb8" secondAttribute="bottom" constant="35" id="ZhE-aR-60Y"/>
+                            <constraint firstItem="nAB-av-jhu" firstAttribute="top" secondItem="1hm-11-oYT" secondAttribute="bottom" constant="33" id="b6y-2P-6A3"/>
+                            <constraint firstItem="bFm-Xf-CCU" firstAttribute="trailing" secondItem="wll-HO-BIw" secondAttribute="trailing" id="eh1-eC-m7b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lU7-0G-2xI" secondAttribute="trailing" id="eux-mw-hp8"/>
+                            <constraint firstItem="nAB-av-jhu" firstAttribute="leading" secondItem="1hm-11-oYT" secondAttribute="leading" id="gQc-xF-4ta"/>
+                            <constraint firstItem="bFm-Xf-CCU" firstAttribute="baseline" secondItem="nAB-av-jhu" secondAttribute="baseline" id="ggA-aw-P7Q"/>
+                            <constraint firstItem="bFm-Xf-CCU" firstAttribute="leading" secondItem="nAB-av-jhu" secondAttribute="trailing" constant="10" id="gqW-JQ-2Nq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wll-HO-BIw" secondAttribute="trailing" id="gsf-to-LDB"/>
+                            <constraint firstItem="1hm-11-oYT" firstAttribute="leading" secondItem="AQW-dB-xb8" secondAttribute="leading" id="jDe-R1-FTe"/>
+                            <constraint firstItem="RMA-dV-QqP" firstAttribute="baseline" secondItem="B0c-rH-cyA" secondAttribute="baseline" id="kCU-GG-7TF"/>
+                            <constraint firstItem="lU7-0G-2xI" firstAttribute="leading" secondItem="h4N-2H-Ye2" secondAttribute="trailing" constant="10" id="nZP-Qr-fZW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RMA-dV-QqP" secondAttribute="trailing" id="nwk-gD-4g3"/>
+                            <constraint firstItem="h4N-2H-Ye2" firstAttribute="top" secondItem="DDZ-CI-QI5" secondAttribute="bottom" constant="35" id="qZ5-8j-kmN"/>
+                            <constraint firstItem="DDZ-CI-QI5" firstAttribute="top" secondItem="B0c-rH-cyA" secondAttribute="bottom" constant="35" id="seo-dS-GW2"/>
+                            <constraint firstItem="wll-HO-BIw" firstAttribute="baseline" secondItem="1hm-11-oYT" secondAttribute="baseline" id="ukU-gQ-V62"/>
+                            <constraint firstItem="DDZ-CI-QI5" firstAttribute="leading" secondItem="B0c-rH-cyA" secondAttribute="leading" id="vYX-qJ-wey"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sales" id="wpk-qI-J5J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3Jn-RI-BLK">
+                            <connections>
+                                <action selector="onSave:" destination="bHn-Nw-rDb" id="WDZ-kS-cFg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amountTextField" destination="RMA-dV-QqP" id="e1N-0X-gYx"/>
+                        <outlet property="dateTextField" destination="RSh-37-p8O" id="OYX-sH-c2S"/>
+                        <outlet property="pricePer1TextField" destination="lU7-0G-2xI" id="Ffq-Xi-kB6"/>
+                        <outlet property="productTextField" destination="Csp-Jb-SPb" id="HZ4-ib-HGn"/>
+                        <outlet property="salesManTextField" destination="bFm-Xf-CCU" id="CaH-mC-hlP"/>
+                        <outlet property="saveBarButton" destination="3Jn-RI-BLK" id="nsE-fe-WSJ"/>
+                        <outlet property="sizeTextField" destination="wll-HO-BIw" id="Led-Qj-gfR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lOC-ta-XC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="129"/>
+        </scene>
+    </scenes>
+</document>
