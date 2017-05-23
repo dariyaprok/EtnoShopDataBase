@@ -21,6 +21,40 @@ class CoreDataManager: NSObject {
     private let areaEntityName = "Area"
     private let categoryEntityName = "Category"
     private let productEntityName = "Product"
+    private let arrivalEntityName = "Arrival"
+    
+    //MARK: - products
+    public func loadAllAriivals() -> [Arrival] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: arrivalEntityName)
+        var arrivals:[Arrival] = []
+        do {
+            arrivals = try coreDataStack.managedObjectContext.fetch(request) as! [Arrival]
+            let records = try coreDataStack.managedObjectContext.fetch(request)
+            if let records = records as? [Arrival] {
+                arrivals = records
+            }
+        }
+        catch {
+            print("Can't load employees")
+        }
+        return arrivals
+    }
+    
+    public func addArrival(amount: Int16, pricePer1: Int16, date: NSDate, product: Product, size: Size) {
+        let arrival: Arrival = NSEntityDescription.insertNewObject(forEntityName: arrivalEntityName, into: coreDataStack.managedObjectContext) as! Arrival
+        arrival.amount = amount
+        arrival.pricePerOne = pricePer1
+        arrival.date = date
+        arrival.product = arrival.managedObjectContext?.object(with: product.objectID) as! Product?
+        arrival.size = arrival.managedObjectContext?.object(with: size.objectID) as! Size?
+        
+        do {
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("Can't save moc")
+        }
+    }
     
     //MARK: - products
     public func loadAllProducts() -> [Product] {

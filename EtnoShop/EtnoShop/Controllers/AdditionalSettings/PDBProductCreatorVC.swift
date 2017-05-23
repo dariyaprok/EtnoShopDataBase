@@ -14,13 +14,14 @@ enum PDBParameterModel {
     case none
 }
 
+
 protocol PDBProductParameterPickerDelegate {
     func viewControllerPickParameter(data: Any)
 }
 
 protocol PDBProductParameterPicker {
     func setDelegate(delegate: PDBProductParameterPickerDelegate)
-    var isEditableMode: Bool {get set}
+    var isPickingMode: Bool {get set}
 }
 
 class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductParameterPickerDelegate {
@@ -57,8 +58,8 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
     
     //MARK: - IBActions
     @IBAction func onCreateProduct(_ sender: Any) {
-        var area = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.area)]
-        var category = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.category)]
+        let area = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.area)]
+        let category = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.category)]
         if category != nil && area != nil {
             if isEditableMode {
                 CoreDataManager().editProduct(product: product!, name: namrTextField!.text!, area: area as! Area, category: category as! Category)
@@ -87,7 +88,7 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
         if activeEditingParameter != .none {
             var vc = UIStoryboard(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: identiFierForResource(parameterModel: activeEditingParameter)) as! PDBProductParameterPicker
             vc.setDelegate(delegate: self)
-            vc.isEditableMode = true
+            vc.isPickingMode = true
             self.navigationController?.pushViewController(vc as! UIViewController, animated: true)
             return false
         }

@@ -9,12 +9,14 @@
 import UIKit
 
 class PDBAreaListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, PDBProductParameterPicker {
+    
+    static let identifier = "PDBAreaListVC"
 
     //MARK: - properties
     @IBOutlet weak var tableView: UITableView!
     
     private var productPickerDelegate: PDBProductParameterPickerDelegate?
-    public var isEditableMode: Bool = false
+    public var isPickingMode: Bool = false
     
     var areas: [Area] = [] {
         didSet {
@@ -56,7 +58,7 @@ class PDBAreaListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isEditableMode && productPickerDelegate != nil {
+        if isPickingMode && productPickerDelegate != nil {
             productPickerDelegate?.viewControllerPickParameter(data: areas[indexPath.row])
             self.navigationController?.popViewController(animated: true)
         }

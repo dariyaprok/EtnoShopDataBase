@@ -3,6 +3,13 @@
     <entity name="Area" representedClassName="Area" syncable="YES">
         <attribute name="name" attributeType="String" defaultValueString="area name" syncable="YES"/>
     </entity>
+    <entity name="Arrival" representedClassName="Arrival" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="517249140" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="pricePerOne" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" syncable="YES"/>
+        <relationship name="size" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Size" syncable="YES"/>
+    </entity>
     <entity name="Bonus" representedClassName="Bonus" syncable="YES">
         <attribute name="amount" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateOfCreation" attributeType="Date" defaultDateTimeInterval="516782220" usesScalarValueType="NO" syncable="YES"/>
@@ -30,11 +37,12 @@
         <attribute name="waistLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bonus" positionX="-54" positionY="27" width="128" height="90"/>
-        <element name="Employee" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="Size" positionX="-54" positionY="36" width="128" height="90"/>
         <element name="Area" positionX="-27" positionY="63" width="128" height="60"/>
+        <element name="Bonus" positionX="-54" positionY="27" width="128" height="90"/>
         <element name="Category" positionX="-9" positionY="81" width="128" height="60"/>
+        <element name="Employee" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Product" positionX="9" positionY="90" width="128" height="90"/>
+        <element name="Size" positionX="-54" positionY="36" width="128" height="90"/>
+        <element name="Arrival" positionX="-36" positionY="63" width="128" height="120"/>
     </elements>
 </model>

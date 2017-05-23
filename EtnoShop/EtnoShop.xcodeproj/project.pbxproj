@@ -20,6 +20,10 @@
 		84AA17541ED23E4200715D85 /* PDBCategoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17531ED23E4200715D85 /* PDBCategoryListVC.swift */; };
 		84AA17561ED23FB200715D85 /* PDBCreateCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17551ED23FB200715D85 /* PDBCreateCategoryVC.swift */; };
 		84AA17591ED2444700715D85 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA17571ED2444700715D85 /* Product.swift */; };
+		84C946E01ED49A1F002701EC /* Arrival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C946DE1ED49A1F002701EC /* Arrival.swift */; };
+		84C946E41ED49AFE002701EC /* PDBArrivalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C946E31ED49AFE002701EC /* PDBArrivalListVC.swift */; };
+		84C946E61ED49B18002701EC /* Arrival.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C946E51ED49B18002701EC /* Arrival.storyboard */; };
+		84C946E81ED49B42002701EC /* PDBArrivalCreatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C946E71ED49B42002701EC /* PDBArrivalCreatorVC.swift */; };
 		84D0AA8A1ECCDEAF00DCBCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */; };
 		84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA8D1ECCDEAF00DCBCF1 /* Main.storyboard */; };
 		84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA901ECCDEAF00DCBCF1 /* Assets.xcassets */; };
@@ -54,6 +58,10 @@
 		84AA17531ED23E4200715D85 /* PDBCategoryListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBCategoryListVC.swift; path = Controllers/AdditionalSettings/PDBCategoryListVC.swift; sourceTree = "<group>"; };
 		84AA17551ED23FB200715D85 /* PDBCreateCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBCreateCategoryVC.swift; path = Controllers/AdditionalSettings/PDBCreateCategoryVC.swift; sourceTree = "<group>"; };
 		84AA17571ED2444700715D85 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Models/Product.swift; sourceTree = "<group>"; };
+		84C946DE1ED49A1F002701EC /* Arrival.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arrival.swift; path = Models/Arrival.swift; sourceTree = "<group>"; };
+		84C946E31ED49AFE002701EC /* PDBArrivalListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBArrivalListVC.swift; path = Controllers/Arrival/PDBArrivalListVC.swift; sourceTree = "<group>"; };
+		84C946E51ED49B18002701EC /* Arrival.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Arrival.storyboard; path = Controllers/Arrival/Arrival.storyboard; sourceTree = "<group>"; };
+		84C946E71ED49B42002701EC /* PDBArrivalCreatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBArrivalCreatorVC.swift; path = Controllers/Arrival/PDBArrivalCreatorVC.swift; sourceTree = "<group>"; };
 		84D0AA861ECCDEAF00DCBCF1 /* EtnoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtnoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D0AA8E1ECCDEAF00DCBCF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +112,16 @@
 			name = AdditionalSettings;
 			sourceTree = "<group>";
 		};
+		84C946E21ED49AD2002701EC /* Arrival */ = {
+			isa = PBXGroup;
+			children = (
+				84C946E51ED49B18002701EC /* Arrival.storyboard */,
+				84C946E31ED49AFE002701EC /* PDBArrivalListVC.swift */,
+				84C946E71ED49B42002701EC /* PDBArrivalCreatorVC.swift */,
+			);
+			name = Arrival;
+			sourceTree = "<group>";
+		};
 		84D0AA7D1ECCDEAF00DCBCF1 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +158,7 @@
 		84D0AA9B1ECCFB9E00DCBCF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84C946E21ED49AD2002701EC /* Arrival */,
 				84AA17361ED1FD7500715D85 /* AdditionalSettings */,
 				84D0AAD31ED0F1C600DCBCF1 /* Employees */,
 				84D0AA9C1ECCFCD100DCBCF1 /* PDBMainMenuVC.swift */,
@@ -180,6 +199,7 @@
 				84AA174F1ED23DB000715D85 /* Category.swift */,
 				84AA17491ED2365800715D85 /* Area.swift */,
 				84D0AACF1ED0615E00DCBCF1 /* Bonus.swift */,
+				84C946DE1ED49A1F002701EC /* Arrival.swift */,
 				84D0AAC71ED05DD900DCBCF1 /* Employee.swift */,
 				84AA173D1ED20AAE00715D85 /* Size.swift */,
 			);
@@ -262,6 +282,7 @@
 				84D0AA941ECCDEAF00DCBCF1 /* LaunchScreen.storyboard in Resources */,
 				84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */,
 				84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */,
+				84C946E61ED49B18002701EC /* Arrival.storyboard in Resources */,
 				84D0AAA41ECCFE1000DCBCF1 /* PDBMenuCell.xib in Resources */,
 				84D0AAD71ED0F55A00DCBCF1 /* Employees.storyboard in Resources */,
 			);
@@ -279,6 +300,7 @@
 				84AA17541ED23E4200715D85 /* PDBCategoryListVC.swift in Sources */,
 				84AA174B1ED2365800715D85 /* Area.swift in Sources */,
 				84D0AA9D1ECCFCD100DCBCF1 /* PDBMainMenuVC.swift in Sources */,
+				84C946E01ED49A1F002701EC /* Arrival.swift in Sources */,
 				84AA17561ED23FB200715D85 /* PDBCreateCategoryVC.swift in Sources */,
 				84D0AAA21ECCFDEA00DCBCF1 /* PDBMenuCell.swift in Sources */,
 				84AA173A1ED201DD00715D85 /* PDBAdditionalSettingsVC.swift in Sources */,
@@ -288,6 +310,7 @@
 				84D0AAAA1ECD756900DCBCF1 /* EtnoShop.xcdatamodeld in Sources */,
 				84D770CE1ED37F7A00B3F3F3 /* PDBProductCreatorVC.swift in Sources */,
 				84D0AAD51ED0F1FA00DCBCF1 /* PDBEmployeeListVC.swift in Sources */,
+				84C946E41ED49AFE002701EC /* PDBArrivalListVC.swift in Sources */,
 				84D770CC1ED37D6200B3F3F3 /* PDBProductListVC.swift in Sources */,
 				84D0AAD91ED16E1400DCBCF1 /* PDBEmployeeCreatorVC.swift in Sources */,
 				84D0AAC91ED05DD900DCBCF1 /* Employee.swift in Sources */,
@@ -296,6 +319,7 @@
 				84D0AAD11ED0615E00DCBCF1 /* Bonus.swift in Sources */,
 				84AA174E1ED23B1900715D85 /* PDBCreateAreaVC.swift in Sources */,
 				84AA17591ED2444700715D85 /* Product.swift in Sources */,
+				84C946E81ED49B42002701EC /* PDBArrivalCreatorVC.swift in Sources */,
 				84D0AADC1ED1E98300DCBCF1 /* PDBBonusListVC.swift in Sources */,
 				84AA17421ED213D700715D85 /* PDBCreateSizeVC.swift in Sources */,
 				84AA173F1ED20AAE00715D85 /* Size.swift in Sources */,

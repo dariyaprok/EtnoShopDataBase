@@ -324,7 +324,7 @@
             </objects>
             <point key="canvasLocation" x="878" y="1642"/>
         </scene>
-        <!--New category-->
+        <!--Category-->
         <scene sceneID="yfS-UJ-uof">
             <objects>
                 <viewController id="VX0-Ul-cyy" customClass="PDBCreateCategoryVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
@@ -358,7 +358,7 @@
                             <constraint firstItem="avd-qB-znD" firstAttribute="leading" secondItem="ysS-pQ-i3M" secondAttribute="leadingMargin" id="jeg-a8-QX2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New category" id="iUX-0c-trI">
+                    <navigationItem key="navigationItem" title="Category" id="iUX-0c-trI">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="xyQ-tm-jG6">
                             <connections>
                                 <action selector="onSaveCategory:" destination="VX0-Ul-cyy" id="MqD-PX-QWW"/>
@@ -373,7 +373,7 @@
             </objects>
             <point key="canvasLocation" x="1580" y="1641"/>
         </scene>
-        <!--New area-->
+        <!--Area-->
         <scene sceneID="FWu-SG-89e">
             <objects>
                 <viewController storyboardIdentifier="PDBNewAreaVC" id="387-I1-0NY" customClass="PDBCreateAreaVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
@@ -407,7 +407,7 @@
                             <constraint firstItem="9hh-aR-Yr3" firstAttribute="baseline" secondItem="p3M-Lt-qp9" secondAttribute="baseline" id="c4S-vA-vhX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New area" id="hjh-w4-PlF">
+                    <navigationItem key="navigationItem" title="Area" id="hjh-w4-PlF">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="tHh-lZ-WoU">
                             <connections>
                                 <action selector="onSave:" destination="387-I1-0NY" id="hX6-Y7-RZf"/>
@@ -422,7 +422,7 @@
             </objects>
             <point key="canvasLocation" x="1580" y="913"/>
         </scene>
-        <!--New size-->
+        <!--Size-->
         <scene sceneID="GSc-um-pCA">
             <objects>
                 <viewController storyboardIdentifier="PDBNewSizeVC" id="Vyw-dq-hoP" customClass="PDBCreateSizeVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
@@ -490,7 +490,7 @@
                             <constraint firstItem="FTz-xm-2TB" firstAttribute="leading" secondItem="3kG-bN-bXI" secondAttribute="trailing" constant="10" id="zbB-5t-845"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New size" id="Oyk-XG-brQ">
+                    <navigationItem key="navigationItem" title="Size" id="Oyk-XG-brQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="lwt-w6-NED">
                             <connections>
                                 <action selector="onSave:" destination="Vyw-dq-hoP" id="5BF-wB-PRf"/>

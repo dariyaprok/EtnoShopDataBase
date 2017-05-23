@@ -8,7 +8,9 @@
 
 import UIKit
 
-class PDBSizesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PDBSizesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, PDBProductParameterPicker {
+    
+    static let identifier = "PDBSizesVC"
     
     //MARK: - properties
     @IBOutlet weak var sizesTableView: UITableView!
@@ -18,6 +20,9 @@ class PDBSizesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sizesTableView.reloadData()
         }
     }
+    
+    private var productPickerDelegate: PDBProductParameterPickerDelegate?
+    public var isPickingMode: Bool = false
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -30,7 +35,7 @@ class PDBSizesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - IBAction
     @IBAction func onAdd(_ sender: Any) {
-        var vc = UIStoryboard(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBCreateSizeVC.identifier) as! PDBProductParameterPicker
+        var vc = UIStoryboard(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBCreateSizeVC.identifier) as! PDBCreateSizeVC
         vc.isEditableMode = false
         self.navigationController?.pushViewController(vc as! UIViewController, animated: true)
         
@@ -43,8 +48,20 @@ class PDBSizesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isPickingMode && productPickerDelegate != nil {
+            productPickerDelegate?.viewControllerPickParameter(data: sizes[indexPath.row])
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sizes.count
+    }
+    
+    //MARK: - product parametrPicker
+    func setDelegate(delegate: PDBProductParameterPickerDelegate) {
+        productPickerDelegate = delegate
     }
     
     //MARK: - private

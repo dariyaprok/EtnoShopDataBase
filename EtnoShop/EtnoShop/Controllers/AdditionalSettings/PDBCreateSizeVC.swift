@@ -16,6 +16,8 @@ class PDBCreateSizeVC: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var shouldersLangthTextField: UITextField!
     @IBOutlet weak var waistTextField: UITextField!
+    
+    var isEditableMode: Bool = false
 
     //MARK: - life cycle
     override func viewDidLoad() {

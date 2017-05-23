@@ -8,10 +8,12 @@
 
 import UIKit
 
-class PDBProductListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PDBProductListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, PDBProductParameterPicker {
     
     static let identifier = "PDBProductListVC"
     
+    private var pickerDelegate: PDBProductParameterPickerDelegate?
+    var isPickingMode: Bool = false
     
     //MARK: - properties
     @IBOutlet weak var tableView: UITableView!
@@ -30,6 +32,11 @@ class PDBProductListVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     override func viewWillAppear(_ animated: Bool) {
         loadContent()
+    }
+    
+    //PDBProductParameterPicker
+    func setDelegate(delegate: PDBProductParameterPickerDelegate) {
+        pickerDelegate = delegate
     }
     
     //MARK: - IBActions
@@ -51,10 +58,15 @@ class PDBProductListVC: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard.init(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBProductCreatorVC.identifier) as? PDBProductCreatorVC
-        vc!.isEditableMode = true
-        vc!.product = products[indexPath.row]
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if isPickingMode && pickerDelegate != nil {
+            pickerDelegate?.viewControllerPickParameter(data: products[indexPath.row])
+            navigationController?.popViewController(animated: true)
+        } else {
+            let vc = UIStoryboard.init(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBProductCreatorVC.identifier) as? PDBProductCreatorVC
+            vc!.isEditableMode = true
+            vc!.product = products[indexPath.row]
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
     
     //MARK: - private
@@ -69,5 +81,5 @@ class PDBProductListVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     
     
-
+    
 }
