@@ -42,8 +42,8 @@ class CoreDataManager: NSObject {
     public func addProduct(name: String, area: Area, category: Category) {
         let product: Product = NSEntityDescription.insertNewObject(forEntityName: productEntityName, into: coreDataStack.managedObjectContext) as! Product
         product.name = name
-        product.area = area
-        product.category = category
+        product.area = product.managedObjectContext?.object(with: area.objectID) as! Area?
+        product.category = product.managedObjectContext?.object(with: category.objectID) as! Category?
         
         do {
             try coreDataStack.managedObjectContext.save()

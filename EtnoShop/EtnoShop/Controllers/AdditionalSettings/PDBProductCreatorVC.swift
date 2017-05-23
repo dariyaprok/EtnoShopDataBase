@@ -20,6 +20,7 @@ protocol PDBProductParameterPickerDelegate {
 
 protocol PDBProductParameterPicker {
     func setDelegate(delegate: PDBProductParameterPickerDelegate)
+    var isEditableMode: Bool {get set}
 }
 
 class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductParameterPickerDelegate {
@@ -38,8 +39,19 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    
+    //MARK: - IBActions
+    @IBAction func onCreateProduct(_ sender: Any) {
+        var area = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.area)]
+        var category = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.category)]
+        if category != nil && area != nil {
+            CoreDataManager().addProduct(name: namrTextField.text!, area: area as! Area, category: category as! Category)
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
     
     //MARK: - text field
@@ -56,17 +68,24 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
             break
         }
         if activeEditingParameter != .none {
-            let vc = UIStoryboard(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: identiFierForResource(parameterModel: activeEditingParameter)) as! PDBProductParameterPicker
+            var vc = UIStoryboard(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: identiFierForResource(parameterModel: activeEditingParameter)) as! PDBProductParameterPicker
             vc.setDelegate(delegate: self)
+            vc.isEditableMode = true
             self.navigationController?.pushViewController(vc as! UIViewController, animated: true)
             return false
         }
         return true
     }
-
+    
     //MARK: - PDBProductCreatorDelegate
     func viewControllerPickParameter(data: Any) {
         dataForProduct[identiFierForResource(parameterModel: activeEditingParameter)] = data
+        if let area = data as? Area {
+            areaTextField.text = area.name
+        }
+        else if let category = data as? Category {
+            categorytextField.text = category.name
+        }
     }
     
     //MARK: - private

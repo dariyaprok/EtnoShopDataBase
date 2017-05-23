@@ -8,12 +8,13 @@
 
 import UIKit
 
-class PDBAreaListVC: UIViewController, UITableViewDataSource, PDBProductParameterPicker {
+class PDBAreaListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, PDBProductParameterPicker {
 
     //MARK: - properties
     @IBOutlet weak var tableView: UITableView!
     
     private var productPickerDelegate: PDBProductParameterPickerDelegate?
+    public var isEditableMode: Bool = false
     
     var areas: [Area] = [] {
         didSet {
@@ -31,6 +32,13 @@ class PDBAreaListVC: UIViewController, UITableViewDataSource, PDBProductParamete
         loadContent()
     }
     
+    //MARK: - IBActions
+    @IBAction func onAdd(_ sender: Any) {
+        var vc = UIStoryboard(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBCreateAreaVC.identifier) //as! PDBProductParameterPicker
+        //vc.isEditableMode = false
+        self.navigationController?.pushViewController(vc as! UIViewController, animated: true)
+    }
+    
     //MARK: - product parametrPicker
     func setDelegate(delegate: PDBProductParameterPickerDelegate) {
         productPickerDelegate = delegate
@@ -45,6 +53,13 @@ class PDBAreaListVC: UIViewController, UITableViewDataSource, PDBProductParamete
         let cell: PDBMenuCell = tableView.dequeueReusableCell(withIdentifier: PDBMenuCell.identifier, for: indexPath) as! PDBMenuCell
         cell.mainTextLabel.text = areas[indexPath.row].name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isEditableMode && productPickerDelegate != nil {
+            productPickerDelegate?.viewControllerPickParameter(data: areas[indexPath.row])
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     //MARK: - private

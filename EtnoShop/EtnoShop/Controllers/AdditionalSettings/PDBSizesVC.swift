@@ -28,6 +28,13 @@ class PDBSizesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         loadContent()
     }
     
+    //MARK: - IBAction
+    @IBAction func onAdd(_ sender: Any) {
+        var vc = UIStoryboard(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBCreateSizeVC.identifier) as! PDBProductParameterPicker
+        vc.isEditableMode = false
+        self.navigationController?.pushViewController(vc as! UIViewController, animated: true)
+        
+    }
     
     //MARK: - table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -173,7 +173,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Product" id="Kn8-7y-YmX">
-                        <barButtonItem key="rightBarButtonItem" title="New product" id="NLb-Xy-F59"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="NLb-Xy-F59">
+                            <connections>
+                                <action selector="onCreateProduct:" destination="GFm-1F-C9C" id="3Mv-35-AO4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="areaTextField" destination="Q8Q-Pd-2gD" id="ENo-9w-pjQ"/>
@@ -217,12 +221,13 @@
                     <navigationItem key="navigationItem" title="Sizes" id="GV8-O3-SOq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b1E-zL-1kL">
                             <connections>
-                                <segue destination="Vyw-dq-hoP" kind="show" id="3p1-zc-dPl"/>
+                                <action selector="onAdd:" destination="SbV-kS-wsk" id="VDF-S5-lya"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="sizesTableView" destination="5BD-KH-BFh" id="jzy-PZ-m26"/>
+                        <segue destination="Vyw-dq-hoP" kind="show" id="ryV-gr-bN6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0C-dw-iVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,12 +266,13 @@
                     <navigationItem key="navigationItem" title="Areas" id="F8F-YW-bDx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SgJ-8u-LTh">
                             <connections>
-                                <segue destination="387-I1-0NY" kind="show" id="Hax-HM-XKt"/>
+                                <action selector="onAdd:" destination="miQ-1g-ovc" id="P61-ia-AJI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="izE-H0-pkG" id="pM0-zI-PRh"/>
+                        <segue destination="387-I1-0NY" kind="show" id="tIm-SO-AcE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJ5-Vr-lzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -370,7 +376,7 @@
         <!--New area-->
         <scene sceneID="FWu-SG-89e">
             <objects>
-                <viewController id="387-I1-0NY" customClass="PDBCreateAreaVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PDBNewAreaVC" id="387-I1-0NY" customClass="PDBCreateAreaVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b6S-jr-muF"/>
                         <viewControllerLayoutGuide type="bottom" id="A26-ev-qVf"/>
@@ -419,7 +425,7 @@
         <!--New size-->
         <scene sceneID="GSc-um-pCA">
             <objects>
-                <viewController id="Vyw-dq-hoP" customClass="PDBCreateSizeVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PDBNewSizeVC" id="Vyw-dq-hoP" customClass="PDBCreateSizeVC" customModule="EtnoShop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KF7-ni-DmS"/>
                         <viewControllerLayoutGuide type="bottom" id="Pjb-Jo-KAo"/>

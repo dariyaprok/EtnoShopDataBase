@@ -8,12 +8,13 @@
 
 import UIKit
 
-class PDBCategoryListVC: UIViewController, UITableViewDataSource, PDBProductParameterPicker {
+class PDBCategoryListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, PDBProductParameterPicker {
 
     //MARK: - properties
     @IBOutlet weak var tableView: UITableView!
     
     private var productPickerDelegate :PDBProductParameterPickerDelegate?
+    public var isEditableMode: Bool = false
     
     var categories: [Category] = [] {
         didSet {
@@ -45,6 +46,13 @@ class PDBCategoryListVC: UIViewController, UITableViewDataSource, PDBProductPara
         let cell: PDBMenuCell = tableView.dequeueReusableCell(withIdentifier: PDBMenuCell.identifier, for: indexPath) as! PDBMenuCell
         cell.mainTextLabel.text = categories[indexPath.row].name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isEditableMode && productPickerDelegate != nil {
+            productPickerDelegate?.viewControllerPickParameter(data: categories[indexPath.row])
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     //MARK: - private

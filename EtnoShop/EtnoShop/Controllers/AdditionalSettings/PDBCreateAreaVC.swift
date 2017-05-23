@@ -9,9 +9,12 @@
 import UIKit
 
 class PDBCreateAreaVC: UIViewController {
+    
+    static let identifier = "PDBNewAreaVC"
 
     //MARK: - properties
     @IBOutlet weak var nameAreaTextField: UITextField!
+    
     
     //MARK: - life cycle
     override func viewDidLoad() {

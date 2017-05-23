@@ -10,6 +10,8 @@ import UIKit
 
 class PDBCreateSizeVC: UIViewController {
     
+    static let identifier = "PDBNewSizeVC"
+    
     //MARK: - properties
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var shouldersLangthTextField: UITextField!
