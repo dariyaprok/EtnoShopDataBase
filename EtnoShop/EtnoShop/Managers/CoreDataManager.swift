@@ -53,6 +53,19 @@ class CoreDataManager: NSObject {
         }
     }
     
+    public func editProduct(product: Product, name: String, area: Area, category: Category) {
+        product.name = name
+        product.area = product.managedObjectContext?.object(with: area.objectID) as! Area?
+        product.category = product.managedObjectContext?.object(with: category.objectID) as! Category?
+        
+        do {
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("Can't save moc")
+        }
+    }
+    
     //MARK: - categories
     public func loadAllCategories() -> [Category] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: categoryEntityName)

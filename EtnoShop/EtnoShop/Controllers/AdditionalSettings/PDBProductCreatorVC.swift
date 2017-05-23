@@ -35,12 +35,24 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
     var isEditableMode: Bool = false
     var activeEditingParameter: PDBParameterModel = .none
     var dataForProduct: [String: Any] = [:]
+    var product: Product? {
+        didSet {
+            if product != nil {
+                dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.area)] = product?.area
+                dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.category)] = product?.category
+            }
+        }
+    }
     
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
     }
     
     //MARK: - IBActions
@@ -48,7 +60,12 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
         var area = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.area)]
         var category = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.category)]
         if category != nil && area != nil {
-            CoreDataManager().addProduct(name: namrTextField.text!, area: area as! Area, category: category as! Category)
+            if isEditableMode {
+                CoreDataManager().editProduct(product: product!, name: namrTextField!.text!, area: area as! Area, category: category as! Category)
+            }
+            else {
+                CoreDataManager().addProduct(name: namrTextField.text!, area: area as! Area, category: category as! Category)
+            }
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -95,6 +112,19 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
             return "PDBCategoryListVCID"
         default:
             return "PDBAreaListVCID"
+        }
+    }
+    
+    private func setupUI() {
+        if isEditableMode && product != nil {
+            namrTextField.text = product!.name
+            areaTextField.text = product!.area!.name
+            categorytextField.text = product!.category!.name
+        }
+        else {
+            namrTextField.text = nil
+            areaTextField.text = nil
+            categorytextField.text = nil
         }
     }
 }

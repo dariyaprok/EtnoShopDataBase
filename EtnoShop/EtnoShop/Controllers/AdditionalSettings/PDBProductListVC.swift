@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PDBProductListVC: UIViewController, UITableViewDataSource {
+class PDBProductListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     static let identifier = "PDBProductListVC"
+    
     
     //MARK: - properties
     @IBOutlet weak var tableView: UITableView!
@@ -33,6 +34,9 @@ class PDBProductListVC: UIViewController, UITableViewDataSource {
     
     //MARK: - IBActions
     @IBAction func onAdd(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBProductCreatorVC.identifier) as? PDBProductCreatorVC
+        vc?.isEditableMode = false
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     //MARK: - table view
@@ -44,6 +48,13 @@ class PDBProductListVC: UIViewController, UITableViewDataSource {
         let cell: PDBMenuCell = tableView.dequeueReusableCell(withIdentifier: PDBMenuCell.identifier, for: indexPath) as! PDBMenuCell
         cell.mainTextLabel.text = products[indexPath.row].name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.init(name: "AdditionalSettings", bundle: nil).instantiateViewController(withIdentifier: PDBProductCreatorVC.identifier) as? PDBProductCreatorVC
+        vc!.isEditableMode = true
+        vc!.product = products[indexPath.row]
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     //MARK: - private
