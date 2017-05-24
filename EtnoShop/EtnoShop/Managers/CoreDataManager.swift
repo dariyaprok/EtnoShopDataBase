@@ -24,6 +24,32 @@ class CoreDataManager: NSObject {
     private let arrivalEntityName = "Arrival"
     private let saleEntityName = "Sale"
     
+    
+    //MARK: - money
+    public func countPlus(dateFrom: NSDate, dateTo: NSDate) -> Int16 {
+        var plus: Int16 = 0
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: saleEntityName)
+        let predicate: NSPredicate = NSPredicate(format: "(date >= %@) AND (date < %@)", dateFrom, dateTo)
+        request.predicate = predicate
+        var sales:[Sale] = []
+        do {
+            sales = try coreDataStack.managedObjectContext.fetch(request) as! [Sale]
+            let records = try coreDataStack.managedObjectContext.fetch(request)
+            if let records = records as? [Sale] {
+                sales = records
+            }
+        }
+        catch {
+            print("Can't load employees")
+        }
+        
+        for sale in sales {
+            plus += sale.amount * sale.pricePerOne
+        }
+        return plus
+    }
+    
     //MARK: - sales
     public func loadAllSales() -> [Sale] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: saleEntityName)
