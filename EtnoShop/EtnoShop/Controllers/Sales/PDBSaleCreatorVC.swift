@@ -92,8 +92,13 @@ class PDBSaleCreatorVC: UIViewController, UITextFieldDelegate, PDBProductParamet
     }
     
     @IBAction func onSave(_ sender: Any) {
+        if checkIfError() {
+            showErrorAlert()
+        }
+        else {
         CoreDataManager.sharedInstanse.addSale(amount: Int16(amountTextField.text!)!, pricePer1: Int16(pricePer1TextField.text!)!, date: date!, product: product!, size: size!, salesman: salesMan!)
         navigationController?.popViewController(animated: true)
+        }
     }
     
     //MARK: - PDBPicker delegate
@@ -162,5 +167,29 @@ class PDBSaleCreatorVC: UIViewController, UITextFieldDelegate, PDBProductParamet
         productTextField.resignFirstResponder()
         productTextField.resignFirstResponder()
     }
+    
+    func checkIfError() -> Bool {
+        if dateTextField.text == nil || !isOnlyNumbers(text: pricePer1TextField.text) || !isOnlyNumbers(text: amountTextField.text) || sizeTextField.text == nil || productTextField.text == nil || salesManTextField.text == nil  {
+            return true
+        }
+        return false
+    }
+    
+    func isOnlyNumbers(text:String?) -> Bool {
+        if text == nil {
+            return false
+        }
+        guard text!.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(text!.characters).isSubset(of: nums)
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please wrie correct data.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
 }
 

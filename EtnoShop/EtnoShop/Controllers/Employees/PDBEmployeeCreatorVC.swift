@@ -41,15 +41,20 @@ class PDBEmployeeCreatorVC: UIViewController {
     
     //MARK: - IBActions
     @IBAction func onSave(_ sender: Any) {
-        let dateOfBirth: NSDate = formatter.date(from: birthdayTextField.text!) as NSDate!
-        let dateOfStartWotk: NSDate = formatter.date(from: startWorkTextField.text!) as NSDate!
-        if isEditableMode {
-            CoreDataManager.sharedInstanse.editEmployee(employee: employee!, name: nameTextField.text!, dateOfBirth: dateOfBirth, dateOfStartWork: dateOfStartWotk, phoneNumber: mobilePhone.text!, sallary: Int16(sallaryTextField.text!)!)
+        if checkIfError() {
+            showErrorAlert()
         }
         else {
-            CoreDataManager.sharedInstanse.addEmployee(name: nameTextField.text!, dateOfBirth: dateOfBirth, dateOfStartWork: dateOfStartWotk, phoneNumber: mobilePhone.text!, sallary: Int16(sallaryTextField.text!)!)
+            let dateOfBirth: NSDate = formatter.date(from: birthdayTextField.text!) as NSDate!
+            let dateOfStartWotk: NSDate = formatter.date(from: startWorkTextField.text!) as NSDate!
+            if isEditableMode {
+                CoreDataManager.sharedInstanse.editEmployee(employee: employee!, name: nameTextField.text!, dateOfBirth: dateOfBirth, dateOfStartWork: dateOfStartWotk, phoneNumber: mobilePhone.text!, sallary: Int16(sallaryTextField.text!)!)
+            }
+            else {
+                CoreDataManager.sharedInstanse.addEmployee(name: nameTextField.text!, dateOfBirth: dateOfBirth, dateOfStartWork: dateOfStartWotk, phoneNumber: mobilePhone.text!, sallary: Int16(sallaryTextField.text!)!)
+            }
+            self.navigationController?.popViewController(animated: true)
         }
-        self.navigationController?.popViewController(animated: true)
     }
     
     func onDone() {
@@ -61,7 +66,7 @@ class PDBEmployeeCreatorVC: UIViewController {
         vc.employee = employee
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
     
     //MARK: - private
     private func setupUI() {
@@ -108,6 +113,29 @@ class PDBEmployeeCreatorVC: UIViewController {
         startWorkTextField.resignFirstResponder()
         sallaryTextField.resignFirstResponder()
         mobilePhone.resignFirstResponder()
+    }
+    
+    func checkIfError() -> Bool {
+        if !isOnlyNumbers(text: mobilePhone.text) || nameTextField.text == nil || birthdayTextField.text == nil || startWorkTextField.text == nil || !isOnlyNumbers(text: sallaryTextField.text)  {
+            return true
+        }
+        return false
+    }
+    
+    func isOnlyNumbers(text:String?) -> Bool {
+        if text == nil {
+            return false
+        }
+        guard text!.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(text!.characters).isSubset(of: nums)
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please wrie correct data.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

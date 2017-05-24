@@ -54,21 +54,26 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
     }
     
     //MARK: - IBActions
     @IBAction func onCreateProduct(_ sender: Any) {
-        let area = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.area)]
-        let category = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.category)]
-        if category != nil && area != nil {
-            if isEditableMode {
-                CoreDataManager().editProduct(product: product!, name: namrTextField!.text!, area: area as! Area, category: category as! Category)
+        if checkIfError() {
+            showErrorAlert()
+        }
+        else {
+            let area = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.area)]
+            let category = dataForProduct[identiFierForResource(parameterModel: PDBParameterModel.category)]
+            if category != nil && area != nil {
+                if isEditableMode {
+                    CoreDataManager().editProduct(product: product!, name: namrTextField!.text!, area: area as! Area, category: category as! Category)
+                }
+                else {
+                    CoreDataManager().addProduct(name: namrTextField.text!, area: area as! Area, category: category as! Category)
+                }
+                self.navigationController?.popViewController(animated: true)
             }
-            else {
-                CoreDataManager().addProduct(name: namrTextField.text!, area: area as! Area, category: category as! Category)
-            }
-            self.navigationController?.popViewController(animated: true)
         }
         
     }
@@ -140,4 +145,29 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
         categorytextField.resignFirstResponder()
         areaTextField.resignFirstResponder()
     }
+    
+    func checkIfError() -> Bool {
+        if namrTextField.text == nil || categorytextField.text == nil || areaTextField.text == nil   {
+            return true
+        }
+        return false
+    }
+    
+    func isOnlyNumbers(text:String?) -> Bool {
+        if text == nil {
+            return false
+        }
+        guard text!.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(text!.characters).isSubset(of: nums)
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please wrie correct data.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
 }

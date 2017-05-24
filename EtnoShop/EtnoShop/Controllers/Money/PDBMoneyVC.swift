@@ -11,7 +11,7 @@ import UIKit
 class PDBMoneyVC: UIViewController, UITextFieldDelegate {
     
     static let identifier = "PDBMoneyVCID"
-
+    
     @IBOutlet weak var countButton: UIButton!
     @IBOutlet weak var cleanPlusTextField: UITextField!
     @IBOutlet weak var minusMoneyTextField: UITextField!
@@ -22,7 +22,7 @@ class PDBMoneyVC: UIViewController, UITextFieldDelegate {
     private var datePicker: UIDatePicker = UIDatePicker()
     private var toolBar: UIToolbar!
     private var formatter: DateFormatter = DateFormatter()
-     fileprivate var activeTextField: UITextField?
+    fileprivate var activeTextField: UITextField?
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -41,17 +41,22 @@ class PDBMoneyVC: UIViewController, UITextFieldDelegate {
     func onDone() {
         activeTextField?.text = formatter.string(from: datePicker.date)
     }
-
-
+    
+    
     @IBAction func onCount(_ sender: Any) {
-        let dateFrom: NSDate = formatter.date(from: dateFromTextField.text!) as NSDate!
-        let dateTo: NSDate = formatter.date(from: dateToTextField.text!) as NSDate!
-        let plus = CoreDataManager.sharedInstanse.countPlus(dateFrom: dateFrom, dateTo: dateTo)
-        plusMoneyTextField.text = "\(plus)"
-        
-        let minus = CoreDataManager.sharedInstanse.countMinus(dateFrom: dateFrom, dateTo: dateTo)
-        minusMoneyTextField.text = "\(plus)"
-        cleanPlusTextField.text = "\(plus - minus)"
+        if checkIfError() {
+            showErrorAlert()
+        }
+        else {
+            let dateFrom: NSDate = formatter.date(from: dateFromTextField.text!) as NSDate!
+            let dateTo: NSDate = formatter.date(from: dateToTextField.text!) as NSDate!
+            let plus = CoreDataManager.sharedInstanse.countPlus(dateFrom: dateFrom, dateTo: dateTo)
+            plusMoneyTextField.text = "\(plus)"
+            
+            let minus = CoreDataManager.sharedInstanse.countMinus(dateFrom: dateFrom, dateTo: dateTo)
+            minusMoneyTextField.text = "\(plus)"
+            cleanPlusTextField.text = "\(plus - minus)"
+        }
     }
     
     //MARK: - private
@@ -77,5 +82,21 @@ class PDBMoneyVC: UIViewController, UITextFieldDelegate {
     func tapGesture() {
         activeTextField?.resignFirstResponder()
     }
-
+    
+    func checkIfError() -> Bool {
+        if dateFromTextField.text == nil || dateToTextField.text == nil   {
+            return true
+        }
+        return false
+    }
+    
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please wrie correct data.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
 }

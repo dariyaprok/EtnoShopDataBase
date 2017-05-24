@@ -26,8 +26,13 @@ class PDBCreateAreaVC: UIViewController {
     
     //MARK: - IBActions
     @IBAction func onSave(_ sender: Any) {
+        if checkIfError() {
+            showErrorAlert()
+        }
+        else {
         CoreDataManager.sharedInstanse.addArea(name: nameAreaTextField.text!)
         self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func setupGesture() {
@@ -37,6 +42,29 @@ class PDBCreateAreaVC: UIViewController {
     
     func tapGesture() {
         areaTextField.resignFirstResponder()
+    }
+    
+    func checkIfError() -> Bool {
+        if nameAreaTextField == nil  {
+            return true
+        }
+        return false
+    }
+    
+    func isOnlyNumbers(text:String?) -> Bool {
+        if text == nil {
+            return false
+        }
+        guard text!.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(text!.characters).isSubset(of: nums)
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please wrie correct data.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

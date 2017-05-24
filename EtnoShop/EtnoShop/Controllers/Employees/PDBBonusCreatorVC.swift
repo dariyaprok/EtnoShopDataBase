@@ -20,20 +20,25 @@ class PDBBonusCreatorVC: UIViewController {
     private var toolBar: UIToolbar!
     
     var employee: Employee!
-
+    
     //MARK: - life
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupGesture()
     }
-
+    
     //MARK: - IBActions
     @IBAction func onSave(_ sender: Any) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        CoreDataManager.sharedInstanse.addBonus(employee: employee, dateOfCreation: formatter.date(from: dateTextField.text!)!, amout: Int16(amountTextField.text!)!)
-        navigationController?.popViewController(animated: true)
+        if checkIfError() {
+            showErrorAlert()
+        }
+        else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy"
+            CoreDataManager.sharedInstanse.addBonus(employee: employee, dateOfCreation: formatter.date(from: dateTextField.text!)!, amout: Int16(amountTextField.text!)!)
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     func onDone() {
@@ -63,5 +68,28 @@ class PDBBonusCreatorVC: UIViewController {
     func tapGesture() {
         dateTextField.resignFirstResponder()
         amountTextField.resignFirstResponder()
+    }
+    
+    func checkIfError() -> Bool {
+        if !isOnlyNumbers(text: amountTextField.text) || dateTextField.text == nil {
+            return true
+        }
+        return false
+    }
+    
+    func isOnlyNumbers(text:String?) -> Bool {
+        if text == nil {
+            return false
+        }
+        guard text!.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(text!.characters).isSubset(of: nums)
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Please wrie correct data.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
