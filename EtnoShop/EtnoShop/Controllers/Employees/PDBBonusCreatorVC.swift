@@ -25,7 +25,7 @@ class PDBBonusCreatorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // Do any additional setup after loading the view.
+        setupGesture()
     }
 
     //MARK: - IBActions
@@ -53,5 +53,15 @@ class PDBBonusCreatorVC: UIViewController {
             dateTextField.inputView = datePicker
             dateTextField.inputAccessoryView = toolBar
         }
+    }
+    
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        dateTextField.resignFirstResponder()
+        amountTextField.resignFirstResponder()
     }
 }

@@ -22,7 +22,7 @@ class PDBCreateSizeVC: UIViewController {
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupGesture()
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +31,16 @@ class PDBCreateSizeVC: UIViewController {
     @IBAction func onSave(_ sender: Any) {
         CoreDataManager.sharedInstanse.addSize(name: nameTextField.text!, shoulderLength: Int16(shouldersLangthTextField.text!)!, waistLength: Int16(waistTextField.text!)!)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        nameTextField.resignFirstResponder()
+        shouldersLangthTextField.resignFirstResponder()
+        waistTextField.resignFirstResponder()
     }
 }

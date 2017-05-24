@@ -415,6 +415,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="areaTextField" destination="9hh-aR-Yr3" id="g3E-5O-O5T"/>
                         <outlet property="nameAreaTextField" destination="9hh-aR-Yr3" id="G9q-Sq-fCK"/>
                     </connections>
                 </viewController>

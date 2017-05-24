@@ -28,6 +28,7 @@ class PDBMoneyVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupGesture()
         // Do any additional setup after loading the view.
     }
     
@@ -67,6 +68,14 @@ class PDBMoneyVC: UIViewController, UITextFieldDelegate {
             dateToTextField.inputView = datePicker
             dateToTextField.inputAccessoryView = toolBar
         }
+    }
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        activeTextField?.resignFirstResponder()
     }
 
 }

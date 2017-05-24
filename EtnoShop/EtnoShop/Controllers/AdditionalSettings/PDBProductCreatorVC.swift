@@ -49,6 +49,7 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupGesture()
         // Do any additional setup after loading the view.
     }
     
@@ -127,5 +128,16 @@ class PDBProductCreatorVC: UIViewController, UITextFieldDelegate, PDBProductPara
             areaTextField.text = nil
             categorytextField.text = nil
         }
+    }
+    
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        namrTextField.resignFirstResponder()
+        categorytextField.resignFirstResponder()
+        areaTextField.resignFirstResponder()
     }
 }

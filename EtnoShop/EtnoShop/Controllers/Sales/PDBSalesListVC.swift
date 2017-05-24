@@ -62,7 +62,7 @@ class PDBSalesListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "Arrival", bundle: nil).instantiateViewController(withIdentifier: PDBSaleCreatorVC.identifier) as! PDBSaleCreatorVC
+        let vc = UIStoryboard(name: "Sales", bundle: nil).instantiateViewController(withIdentifier: PDBSaleCreatorVC.identifier) as! PDBSaleCreatorVC
         vc.sale = sales[indexPath.row]
         vc.isEditableMode = false
         navigationController?.pushViewController(vc, animated: true)

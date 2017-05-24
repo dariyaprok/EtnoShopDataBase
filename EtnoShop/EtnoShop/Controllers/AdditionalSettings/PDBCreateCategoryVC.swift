@@ -16,7 +16,7 @@ class PDBCreateCategoryVC: UIViewController {
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupGesture()
         // Do any additional setup after loading the view.
     }
     
@@ -24,5 +24,14 @@ class PDBCreateCategoryVC: UIViewController {
     @IBAction func onSaveCategory(_ sender: Any) {
         CoreDataManager.sharedInstanse.addCategory(name: nameTextField.text!)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        nameTextField.resignFirstResponder()
     }
 }

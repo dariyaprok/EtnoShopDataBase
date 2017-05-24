@@ -49,6 +49,7 @@ class PDBSaleCreatorVC: UIViewController, UITextFieldDelegate, PDBProductParamet
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -146,6 +147,20 @@ class PDBSaleCreatorVC: UIViewController, UITextFieldDelegate, PDBProductParamet
         productTextField.isEnabled = isEditableMode
         sizeTextField.isEnabled = isEditableMode
         saveBarButton.isEnabled = isEditableMode
+        salesManTextField.isEnabled = isEditableMode
 }
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        dateTextField.resignFirstResponder()
+        pricePer1TextField.resignFirstResponder()
+        amountTextField.resignFirstResponder()
+        sizeTextField.resignFirstResponder()
+        productTextField.resignFirstResponder()
+        productTextField.resignFirstResponder()
+    }
 }
 

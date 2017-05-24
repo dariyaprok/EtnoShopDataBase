@@ -32,6 +32,7 @@ class PDBEmployeeCreatorVC: UIViewController {
     //MARK: - life cycle
     override func viewDidLoad() {
         setupUI()
+        setupGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +95,19 @@ class PDBEmployeeCreatorVC: UIViewController {
             sallaryTextField.text = ""
             mobilePhone.text = ""
         }
+    }
+    
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        nameTextField.resignFirstResponder()
+        birthdayTextField.resignFirstResponder()
+        startWorkTextField.resignFirstResponder()
+        sallaryTextField.resignFirstResponder()
+        mobilePhone.resignFirstResponder()
     }
 }
 

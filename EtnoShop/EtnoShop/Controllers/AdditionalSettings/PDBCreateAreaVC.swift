@@ -15,11 +15,12 @@ class PDBCreateAreaVC: UIViewController {
     //MARK: - properties
     @IBOutlet weak var nameAreaTextField: UITextField!
     
+    @IBOutlet weak var areaTextField: UITextField!
     
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupGesture()
         // Do any additional setup after loading the view.
     }
     
@@ -27,6 +28,15 @@ class PDBCreateAreaVC: UIViewController {
     @IBAction func onSave(_ sender: Any) {
         CoreDataManager.sharedInstanse.addArea(name: nameAreaTextField.text!)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func tapGesture() {
+        areaTextField.resignFirstResponder()
     }
 }
 
