@@ -54,6 +54,16 @@ class PDBBonusListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: bonuses[indexPath.row])
+            bonuses.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
     //MARK: - private
     private func setupUI() {
         bonusesTableView.register(UINib(nibName: PDBMenuCell.identifier, bundle: nil), forCellReuseIdentifier: PDBMenuCell.identifier)

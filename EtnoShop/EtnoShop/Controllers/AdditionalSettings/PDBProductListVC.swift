@@ -57,6 +57,16 @@ class PDBProductListVC: UIViewController, UITableViewDataSource, UITableViewDele
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: products[indexPath.row])
+            products.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isPickingMode && pickerDelegate != nil {
             pickerDelegate?.viewControllerPickParameter(data: products[indexPath.row])

@@ -43,6 +43,16 @@ class PDBSalesListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return sales.count
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: sales[indexPath.row])
+            sales.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PDBMenuCell = tableView.dequeueReusableCell(withIdentifier: PDBMenuCell.identifier, for: indexPath) as! PDBMenuCell
         let sale: Sale = sales[indexPath.row]

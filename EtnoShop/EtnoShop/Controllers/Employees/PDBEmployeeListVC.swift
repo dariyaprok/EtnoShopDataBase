@@ -50,6 +50,16 @@ class PDBEmployeeListVC: UIViewController, UITableViewDelegate, UITableViewDataS
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: employees[indexPath.row])
+            employees.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isPickingMode {
             pickingDelegate?.viewControllerPickParameter(data: employees[indexPath.row])

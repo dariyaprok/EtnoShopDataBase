@@ -25,6 +25,16 @@ class CoreDataManager: NSObject {
     private let saleEntityName = "Sale"
     
     
+    public func deleteMObj(data: NSManagedObject) {
+        coreDataStack.managedObjectContext.delete(data)
+        do {
+            try coreDataStack.managedObjectContext.save()
+        }
+        catch {
+            print("Can't save moc")
+        }
+    }
+    
     //MARK: - money
     public func countPlus(dateFrom: NSDate, dateTo: NSDate) -> Int16 {
         var plus: Int16 = 0
@@ -49,6 +59,35 @@ class CoreDataManager: NSObject {
         }
         return plus
     }
+    
+    public func countMinus(dateFrom: NSDate, dateTo: NSDate) -> Int16 {
+        var plus: Int16 = 0
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: arrivalEntityName)
+        let predicate: NSPredicate = NSPredicate(format: "(date >= %@) AND (date < %@)", dateFrom, dateTo)
+        request.predicate = predicate
+        var arrivals:[Arrival] = []
+        do {
+            arrivals = try coreDataStack.managedObjectContext.fetch(request) as! [Arrival]
+            let records = try coreDataStack.managedObjectContext.fetch(request)
+            if let records = records as? [Arrival] {
+                arrivals = records
+            }
+        }
+        catch {
+            print("Can't load employees")
+        }
+        for sale in arrivals {
+            plus += sale.amount * sale.pricePerOne
+        }
+        
+//        let employees = loadAllEmployees()
+//        for employee in employees {
+//            for bonus in employee.b
+//        }
+        return plus
+    }
+
     
     //MARK: - sales
     public func loadAllSales() -> [Sale] {

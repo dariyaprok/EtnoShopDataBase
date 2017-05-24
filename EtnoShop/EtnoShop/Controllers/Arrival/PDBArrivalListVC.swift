@@ -51,6 +51,16 @@ class PDBArrivalListVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: arrivals[indexPath.row])
+            arrivals.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Arrival", bundle: nil).instantiateViewController(withIdentifier: PDBArrivalCreatorVC.identifier) as! PDBArrivalCreatorVC
         vc.arrival = arrivals[indexPath.row]

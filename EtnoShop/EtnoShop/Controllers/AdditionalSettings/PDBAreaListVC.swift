@@ -64,6 +64,16 @@ class PDBAreaListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: areas[indexPath.row])
+            areas.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
     //MARK: - private
     func setupUI() {
         tableView.register(UINib(nibName: PDBMenuCell.identifier, bundle: nil), forCellReuseIdentifier: PDBMenuCell.identifier)

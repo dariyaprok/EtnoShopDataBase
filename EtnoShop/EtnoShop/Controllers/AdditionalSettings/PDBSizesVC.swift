@@ -55,6 +55,16 @@ class PDBSizesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: sizes[indexPath.row])
+            sizes.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sizes.count
     }

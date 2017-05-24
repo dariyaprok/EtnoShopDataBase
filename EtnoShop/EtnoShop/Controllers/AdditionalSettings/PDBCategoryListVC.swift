@@ -48,6 +48,16 @@ class PDBCategoryListVC: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            CoreDataManager.sharedInstanse.deleteMObj(data: categories[indexPath.row])
+            categories.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isPickingMode && productPickerDelegate != nil {
             productPickerDelegate?.viewControllerPickParameter(data: categories[indexPath.row])

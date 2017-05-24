@@ -47,6 +47,10 @@ class PDBMoneyVC: UIViewController, UITextFieldDelegate {
         let dateTo: NSDate = formatter.date(from: dateToTextField.text!) as NSDate!
         let plus = CoreDataManager.sharedInstanse.countPlus(dateFrom: dateFrom, dateTo: dateTo)
         plusMoneyTextField.text = "\(plus)"
+        
+        let minus = CoreDataManager.sharedInstanse.countMinus(dateFrom: dateFrom, dateTo: dateTo)
+        minusMoneyTextField.text = "\(plus)"
+        cleanPlusTextField.text = "\(plus - minus)"
     }
     
     //MARK: - private
