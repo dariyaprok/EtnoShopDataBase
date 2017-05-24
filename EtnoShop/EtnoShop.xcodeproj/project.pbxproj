@@ -27,6 +27,8 @@
 		84C946ED1ED4B516002701EC /* PDBSalesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C946EC1ED4B516002701EC /* PDBSalesListVC.swift */; };
 		84C946EF1ED4B52E002701EC /* PDBSaleCreatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C946EE1ED4B52E002701EC /* PDBSaleCreatorVC.swift */; };
 		84C946F21ED4B765002701EC /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C946F01ED4B765002701EC /* Sale.swift */; };
+		84C9470B1ED54B21002701EC /* Money.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9470A1ED54B21002701EC /* Money.storyboard */; };
+		84C9470D1ED54B3D002701EC /* PDBMoneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9470C1ED54B3D002701EC /* PDBMoneyVC.swift */; };
 		84D0AA8A1ECCDEAF00DCBCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */; };
 		84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA8D1ECCDEAF00DCBCF1 /* Main.storyboard */; };
 		84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D0AA901ECCDEAF00DCBCF1 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		84C946EC1ED4B516002701EC /* PDBSalesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBSalesListVC.swift; path = Controllers/Sales/PDBSalesListVC.swift; sourceTree = "<group>"; };
 		84C946EE1ED4B52E002701EC /* PDBSaleCreatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBSaleCreatorVC.swift; path = Controllers/Sales/PDBSaleCreatorVC.swift; sourceTree = "<group>"; };
 		84C946F01ED4B765002701EC /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sale.swift; path = Models/Sale.swift; sourceTree = "<group>"; };
+		84C9470A1ED54B21002701EC /* Money.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Money.storyboard; path = Controllers/Money/Money.storyboard; sourceTree = "<group>"; };
+		84C9470C1ED54B3D002701EC /* PDBMoneyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDBMoneyVC.swift; path = Controllers/Money/PDBMoneyVC.swift; sourceTree = "<group>"; };
 		84D0AA861ECCDEAF00DCBCF1 /* EtnoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtnoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D0AA891ECCDEAF00DCBCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D0AA8E1ECCDEAF00DCBCF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 			name = Sales;
 			sourceTree = "<group>";
 		};
+		84C947091ED54B09002701EC /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				84C9470A1ED54B21002701EC /* Money.storyboard */,
+				84C9470C1ED54B3D002701EC /* PDBMoneyVC.swift */,
+			);
+			name = Money;
+			sourceTree = "<group>";
+		};
 		84D0AA7D1ECCDEAF00DCBCF1 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +187,7 @@
 		84D0AA9B1ECCFB9E00DCBCF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84C947091ED54B09002701EC /* Money */,
 				84C946E91ED4B4B3002701EC /* Sales */,
 				84C946E21ED49AD2002701EC /* Arrival */,
 				84AA17361ED1FD7500715D85 /* AdditionalSettings */,
@@ -299,6 +313,7 @@
 				84D0AA941ECCDEAF00DCBCF1 /* LaunchScreen.storyboard in Resources */,
 				84D0AA911ECCDEAF00DCBCF1 /* Assets.xcassets in Resources */,
 				84D0AA8F1ECCDEAF00DCBCF1 /* Main.storyboard in Resources */,
+				84C9470B1ED54B21002701EC /* Money.storyboard in Resources */,
 				84C946E61ED49B18002701EC /* Arrival.storyboard in Resources */,
 				84D0AAA41ECCFE1000DCBCF1 /* PDBMenuCell.xib in Resources */,
 				84D0AAD71ED0F55A00DCBCF1 /* Employees.storyboard in Resources */,
@@ -313,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C9470D1ED54B3D002701EC /* PDBMoneyVC.swift in Sources */,
 				84AA173C1ED2089E00715D85 /* PDBSizesVC.swift in Sources */,
 				84D0AAAD1ECD760500DCBCF1 /* CoreDataManager.swift in Sources */,
 				84AA17541ED23E4200715D85 /* PDBCategoryListVC.swift in Sources */,
